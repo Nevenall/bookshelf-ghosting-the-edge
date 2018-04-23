@@ -67,4 +67,4 @@ var pages = rawPages.keys().map((key) => {
 });
 
 
-export default new Book('Docs', pages)
+export default new Book('Ghosting the Edge', pages)
