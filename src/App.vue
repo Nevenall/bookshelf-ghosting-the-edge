@@ -71,8 +71,9 @@ export default {
 @import "~vue-material/dist/theme/engine";
 
 @include md-register-theme("default", (
-   primary: md-get-palette-color(blue, A200), 
-   accent: md-get-palette-color(red, A200) 
+   primary: md-get-palette-color(indigo, 900), 
+   accent: md-get-palette-color(blue, 200),
+   theme: dark
 ));
 
 @import "~vue-material/dist/theme/all";
@@ -84,13 +85,14 @@ export default {
 
 <style>
 /* You can adjust these styles to layout your pages. */
+@import url("https://fonts.googleapis.com/css?family=Abel|IBM+Plex+Serif:300,300i,400,400i,700,700i");
 
 #page div {
-  font-family: "Roboto";
+  font-family: "IBM Plex Serif";
   max-width: 35em;
   margin: auto;
-  font-size: 1rem;
-  line-height: 1;
+  font-size: 1.125rem;
+  line-height: 1.125;
   letter-spacing: 0;
   word-spacing: 0;
 }
@@ -106,6 +108,8 @@ export default {
 #page h5,
 #page h6 {
   text-align: left;
+  font-family: "Abel";
+  font-weight: normal;
 }
 
 /* 
