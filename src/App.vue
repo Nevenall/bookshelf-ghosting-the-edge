@@ -89,9 +89,10 @@ export default {
 
 #page div {
   font-family: "IBM Plex Serif";
+  font-weight: 400;
   max-width: 35em;
   margin: auto;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.125;
   letter-spacing: 0;
   word-spacing: 0;
