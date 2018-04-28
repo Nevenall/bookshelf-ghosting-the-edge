@@ -85,21 +85,35 @@ export default {
 
 <style>
 /* You can adjust these styles to layout your pages. */
-@import url("https://fonts.googleapis.com/css?family=Abel|IBM+Plex+Serif:300,300i,400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Abel|Raleway:400,400i,500,500i,700,700i|Cabin:400,400i,700,700i");
 
 #page div {
-  font-family: "IBM Plex Serif";
-  font-weight: normal;
+  font-family: "Raleway";
+  font-weight: 500;
   max-width: 35em;
   margin: auto;
   font-size: 1rem;
   line-height: 1.125;
   letter-spacing: 0;
   word-spacing: 0;
+
+  font-feature-settings: "onum" 1;
+}
+
+@supports (font-variant-numeric: oldstyle-nums) {
+  #page div {
+    font-feature-settings: normal;
+    font-variant-numeric: oldstyle-nums;
+  }
 }
 
 #page p {
   hyphens: auto;
+  margin-bottom: 0;
+}
+#page p + p {
+  
+  margin-top: 0;
 }
 
 #page h1,
@@ -129,30 +143,30 @@ export default {
   font-size: 1.3125rem; /* 21px */
 }
 #page h6 {
-  font-size: 1rem;      /* 16px */
+  font-size: 1rem; /* 16px */
 }
 
 @media screen and (min-width: 60em) {
   #page h1 {
-    font-size: 4.1875rem;  /* 67px */
+    font-size: 4.1875rem; /* 67px */
   }
   #page h2 {
-    font-size: 3.1875rem;  /* 51px */
+    font-size: 3.1875rem; /* 51px */
   }
   #page h3 {
-    font-size: 2.75rem;    /* 44px */
+    font-size: 2.75rem; /* 44px */
   }
   #page h4 {
-    font-size: 2.0625rem;  /* 33px */
+    font-size: 2.0625rem; /* 33px */
   }
   #page h5 {
-    font-size: 1.5625rem;  /* 25px */
+    font-size: 1.5625rem; /* 25px */
   }
   #page h6 {
-    font-size: 1.125rem;   /* 18px */
+    font-size: 1.125rem; /* 18px */
   }
   #page p {
-    font-size: 1.125rem;  /* 18px */
+    font-size: 1.125rem; /* 18px */
   }
 }
 @media screen and (min-width: 120em) {
@@ -163,16 +177,16 @@ export default {
     font-size: 4.1875rem; /* 67px */
   }
   #page h3 {
-    font-size: 3.1875rem;  /* 51px */
+    font-size: 3.1875rem; /* 51px */
   }
   #page h4 {
     font-size: 2.375rem; /* 38px */
   }
   #page h5 {
-    font-size: 1.75rem;   /* 28px */
+    font-size: 1.75rem; /* 28px */
   }
   #page h6 {
-    font-size: 1.3125rem;     /* 21px */
+    font-size: 1.3125rem; /* 21px */
   }
   #page p {
     font-size: 1.3125rem; /* 21px */
