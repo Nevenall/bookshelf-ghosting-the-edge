@@ -93,7 +93,7 @@ export default {
   max-width: 35em;
   margin: auto;
   font-size: 1rem;
-  line-height: 1.15;
+  line-height: 1.25;
   letter-spacing: 0;
   word-spacing: 0;
 
@@ -113,6 +113,11 @@ export default {
 }
 #page p + p {
   margin-top: 0;
+}
+
+
+#page .game-term {
+   font-variant: small-caps;
 }
 
 #page h1,
