@@ -97,11 +97,25 @@ export default {
   line-height: 1.25;
   letter-spacing: 0;
   word-spacing: 0;
+  font-synthesis: none;
   font-feature-settings: "salt" on;
+}
+
+#page a {
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+}
+@supports (text-decoration-skip: ink) {
+  #page a {
+    text-decoration: underline 1px solid #000;
+    text-decoration-skip: ink;
+    border-bottom: 0;
+  }
 }
 
 #page table {
   font-feature-settings: "lnum" on;
+  border-collapse: collapse;
 }
 @supports (font-variant-numeric: lining-nums) {
   #page table {
@@ -110,10 +124,20 @@ export default {
   }
 }
 
+#page td,
+#page th {
+  padding: 0.125em 0.5em 0.25em 0.5em;
+  line-height: 1;
+}
+
+#page figure {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
 #page p {
   hyphens: auto;
-
-  margin-bottom: 0;
+  margin-bottom: 0.5em;
 }
 #page p + p {
   margin-top: 0;
@@ -137,6 +161,12 @@ export default {
   font-size: 0.8rem;
 }
 
+/* style for a leading paragraph */
+#page .standfirst {
+}
+
+/* #page p::first-line{ font-weight: bold;} */
+
 #page h1,
 #page h2,
 #page h3,
@@ -147,6 +177,8 @@ export default {
   font-family: "Abel";
   font-weight: normal;
   line-height: 1;
+  margin-top: .5em;
+  margin-bottom: .5em;
 }
 
 #page h1 {
@@ -250,7 +282,7 @@ export default {
     font-size: 1.25rem;
   }
   #page small {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 </style>
