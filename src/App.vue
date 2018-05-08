@@ -164,11 +164,7 @@ export default {
 #page .callout {
 }
 
-/* style for a leading paragraph */
-#page .standfirst {
-}
 
-/* #page p::first-line{ font-weight: bold;} */
 
 #page h1,
 #page h2,
@@ -213,7 +209,7 @@ export default {
     margin-left: -5.75em;
     margin-top: 0;
     margin-bottom:0;
-    line-height: 1.5625em;
+    line-height: 1.5625;
   }
 }
 
