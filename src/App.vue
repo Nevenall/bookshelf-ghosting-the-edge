@@ -137,14 +137,16 @@ export default {
 
 #page p {
   hyphens: auto;
-  margin-bottom: 0.5em;
-}
-#page p + p {
   margin-top: 0;
+  margin-bottom: 0.625em;
 }
 
 #page p:first-of-type::first-letter {
   initial-letter: 3;
+}
+
+#page aside {
+  margin: 1em;
 }
 
 #page .game-term {
@@ -177,8 +179,8 @@ export default {
   font-family: "Abel";
   font-weight: normal;
   line-height: 1;
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 #page h1 {
@@ -203,32 +205,15 @@ export default {
   font-size: 0.8rem;
 }
 
-/* @media screen and (min-width: 15em) {
-  #page h1 {
-    font-size: 3.338rem;
+@media only screen and (min-width: 49em) {
+  #page aside {
+    width: 11.5em;
+    float: left;
+    margin-left: -5.75em;
+    margin-top: 0;
+    line-height: 1.25em;
   }
-  #page h2 {
-    font-size: 2.67rem;
-  }
-  #page h3 {
-    font-size: 2.136rem;
-  }
-  #page h4 {
-    font-size: 1.709rem;
-  }
-  #page h5 {
-    font-size: 1.367rem;
-  }
-  #page h6 {
-    font-size: 1.094rem;
-  }
-  #page p {
-    font-size: 0.875rem;
-  }
-  #page small {
-    font-size: 0.7rem;
-  }
-} */
+}
 
 @media screen and (min-width: 60em) {
   #page h1 {
@@ -254,6 +239,14 @@ export default {
   }
   #page small {
     font-size: 0.9rem;
+  }
+  #page aside {
+    width: 11.5em;
+    float: left;
+    font-size: 0.9rem;
+    margin-left: -12.5em;
+    margin-top: 0;
+    line-height: 1.758;
   }
 }
 @media screen and (min-width: 120em) {
