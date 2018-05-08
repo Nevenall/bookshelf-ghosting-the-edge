@@ -147,6 +147,9 @@ export default {
 
 #page aside {
   margin: 1em;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.5625;
 }
 
 #page .game-term {
@@ -159,8 +162,6 @@ export default {
 }
 
 #page .callout {
-  font-weight: 300;
-  font-size: 0.8rem;
 }
 
 /* style for a leading paragraph */
@@ -211,7 +212,8 @@ export default {
     float: left;
     margin-left: -5.75em;
     margin-top: 0;
-    line-height: 1.25em;
+    margin-bottom:0;
+    line-height: 1.5625em;
   }
 }
 
@@ -246,7 +248,17 @@ export default {
     font-size: 0.9rem;
     margin-left: -12.5em;
     margin-top: 0;
-    line-height: 1.758;
+    line-height: 1.5625;
+  }
+}
+@media screen and (min-width: 90em) {
+  #page aside {
+    width: 22.5em;
+    float: left;
+    font-size: 0.9rem;
+    margin-left: -23.5em;
+    margin-top: 0;
+    line-height: 1.5625;
   }
 }
 @media screen and (min-width: 120em) {
@@ -276,6 +288,15 @@ export default {
   }
   #page small {
     font-size: 1rem;
+  }
+  /* todo - needs adjustment */
+  #page aside {
+    width: 11.5em;
+    float: left;
+    font-size: 0.9rem;
+    margin-left: -12.5em;
+    margin-top: 0;
+    line-height: 1.5625;
   }
 }
 </style>
