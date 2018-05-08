@@ -253,10 +253,10 @@ export default {
 }
 @media screen and (min-width: 90em) {
   #page aside {
-    width: 22.5em;
+    width: 20em;
     float: left;
     font-size: 0.9rem;
-    margin-left: -23.5em;
+    margin-left: -21em;
     margin-top: 0;
     line-height: 1.5625;
   }
@@ -289,12 +289,11 @@ export default {
   #page small {
     font-size: 1rem;
   }
-  /* todo - needs adjustment */
   #page aside {
-    width: 11.5em;
+    width: 25em;
     float: left;
-    font-size: 0.9rem;
-    margin-left: -12.5em;
+    font-size: 1rem;
+    margin-left: -26em;
     margin-top: 0;
     line-height: 1.5625;
   }
