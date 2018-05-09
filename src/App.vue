@@ -1,41 +1,41 @@
 <template>
-   <div id="app" class="page-container">
-      <md-app md-waterfall md-mode="fixed">
-         <md-app-toolbar class="md-primary">
-            <md-button class="md-icon-button" @click="showNavigation = true">
-               <md-icon>menu</md-icon>
-            </md-button>
-            <span class="md-title">BookShelf
-               <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-         </md-app-toolbar>
-         <md-app-drawer :md-active.sync="showNavigation">
-            <md-toolbar class="md-primary" md-elevation="0">
-               <img src="./assets/logo.png" alt="BookShelf">
-            </md-toolbar>
-            <md-list>
-               <md-list-item @click="pushNav('./')">
-                  <h2>{{book.title}}</h2>
-               </md-list-item>
-               <md-list-item md-expand v-for="section in book.sections" :key="section.name">
-                  <span class="md-list-item-text">{{section.name}}</span>
-                  <md-list slot="md-expand">
-                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                        <span class="md-list-item-text">{{nestedPage.name}}</span>
-                     </md-list-item>
-                  </md-list>
-               </md-list-item>
-               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                  <span class="md-list-item-text">{{page.name}}</span>
-               </md-list-item>
-            </md-list>
-         </md-app-drawer>
-         <md-app-content>
-            <div id="page">
-               <router-view></router-view>
-            </div>
-         </md-app-content>
-      </md-app>
-   </div>
+    <div id="app" class="page-container">
+        <md-app md-waterfall md-mode="fixed">
+            <md-app-toolbar class="md-primary">
+                <md-button class="md-icon-button" @click="showNavigation = true">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <span class="md-title">BookShelf
+                    <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
+            </md-app-toolbar>
+            <md-app-drawer :md-active.sync="showNavigation">
+                <md-toolbar class="md-primary" md-elevation="0">
+                    <img src="./assets/logo.png" alt="BookShelf">
+                </md-toolbar>
+                <md-list>
+                    <md-list-item @click="pushNav('./')">
+                        <h2>{{book.title}}</h2>
+                    </md-list-item>
+                    <md-list-item md-expand v-for="section in book.sections" :key="section.name">
+                        <span class="md-list-item-text">{{section.name}}</span>
+                        <md-list slot="md-expand">
+                            <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                                <span class="md-list-item-text">{{nestedPage.name}}</span>
+                            </md-list-item>
+                        </md-list>
+                    </md-list-item>
+                    <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+                        <span class="md-list-item-text">{{page.name}}</span>
+                    </md-list-item>
+                </md-list>
+            </md-app-drawer>
+            <md-app-content>
+                <div id="page">
+                    <router-view></router-view>
+                </div>
+            </md-app-content>
+        </md-app>
+    </div>
 </template>
 
 <script>
@@ -147,7 +147,10 @@ export default {
 }
 
 #page aside {
-  margin: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: 300;
   font-size: 0.8rem;
   line-height: 1.5625;
@@ -198,17 +201,22 @@ export default {
   font-size: 0.8rem;
 }
 
-@media only screen and (min-width: 49em) {
+@media screen and (min-width: 49em) {
+  /* breakpoint for text intrusion sidebars */
   #page aside {
     width: 11.5em;
+    /* adjust line height */
+  }
+
+  #page aside.left {
     float: left;
     margin-left: -5.75em;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.5625;
+  }
+  #page aside.right {
+    float: right;
+    margin-right: -5.75em;
   }
 }
-
 @media screen and (min-width: 60em) {
   #page h1 {
     font-size: 4.292rem;
@@ -236,21 +244,31 @@ export default {
   }
   #page aside {
     width: 11.5em;
-    float: left;
     font-size: 0.9rem;
+    /* adjust line height */
+  }
+  #page aside.left {
+    float: left;
     margin-left: -12.5em;
-    margin-top: 0;
-    line-height: 1.5625;
+  }
+  #page aside.right {
+    float: right;
+    margin-right: -12.5em;
   }
 }
 @media screen and (min-width: 90em) {
   #page aside {
     width: 20em;
-    float: left;
     font-size: 0.9rem;
+    /* adjust line height */
+  }
+  #page aside.left {
+    float: left;
     margin-left: -21em;
-    margin-top: 0;
-    line-height: 1.5625;
+  }
+  #page aside.right {
+    float: right;
+    margin-right: -21em;
   }
 }
 @media screen and (min-width: 120em) {
@@ -283,11 +301,16 @@ export default {
   }
   #page aside {
     width: 25em;
-    float: left;
     font-size: 1rem;
+    /* adjust line height */
+  }
+  #page aside.left {
+    float: left;
     margin-left: -26em;
-    margin-top: 0;
-    line-height: 1.5625;
+  }
+  #page aside.right {
+    float: right;
+    margin-right: -26em;
   }
 }
 </style>
