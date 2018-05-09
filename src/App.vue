@@ -117,6 +117,7 @@ export default {
   font-feature-settings: "lnum" on;
   border-collapse: collapse;
 }
+
 @supports (font-variant-numeric: lining-nums) {
   #page table {
     font-feature-settings: normal;
@@ -161,11 +162,6 @@ export default {
   font-weight: 700;
 }
 
-#page .callout {
-}
-
-
-
 #page h1,
 #page h2,
 #page h3,
@@ -208,7 +204,7 @@ export default {
     float: left;
     margin-left: -5.75em;
     margin-top: 0;
-    margin-bottom:0;
+    margin-bottom: 0;
     line-height: 1.5625;
   }
 }
