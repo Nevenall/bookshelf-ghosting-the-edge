@@ -1,41 +1,41 @@
 <template>
-    <div id="app" class="page-container">
-        <md-app md-waterfall md-mode="fixed">
-            <md-app-toolbar class="md-primary">
-                <md-button class="md-icon-button" @click="showNavigation = true">
-                    <md-icon>menu</md-icon>
-                </md-button>
-                <span class="md-title">BookShelf
-                    <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-            </md-app-toolbar>
-            <md-app-drawer :md-active.sync="showNavigation">
-                <md-toolbar class="md-primary" md-elevation="0">
-                    <img src="./assets/logo.png" alt="BookShelf">
-                </md-toolbar>
-                <md-list>
-                    <md-list-item @click="pushNav('./')">
-                        <h2>{{book.title}}</h2>
-                    </md-list-item>
-                    <md-list-item md-expand v-for="section in book.sections" :key="section.name">
-                        <span class="md-list-item-text">{{section.name}}</span>
-                        <md-list slot="md-expand">
-                            <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                                <span class="md-list-item-text">{{nestedPage.name}}</span>
-                            </md-list-item>
-                        </md-list>
-                    </md-list-item>
-                    <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                        <span class="md-list-item-text">{{page.name}}</span>
-                    </md-list-item>
-                </md-list>
-            </md-app-drawer>
-            <md-app-content>
-                <div id="page">
-                    <router-view></router-view>
-                </div>
-            </md-app-content>
-        </md-app>
-    </div>
+   <div id="app" class="page-container">
+      <md-app md-waterfall md-mode="fixed">
+         <md-app-toolbar class="md-primary">
+            <md-button class="md-icon-button" @click="showNavigation = true">
+               <md-icon>menu</md-icon>
+            </md-button>
+            <span class="md-title">BookShelf
+               <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
+         </md-app-toolbar>
+         <md-app-drawer :md-active.sync="showNavigation">
+            <md-toolbar class="md-primary" md-elevation="0">
+               <img src="./assets/logo.png" alt="BookShelf">
+            </md-toolbar>
+            <md-list>
+               <md-list-item @click="pushNav('./')">
+                  <h2>{{book.title}}</h2>
+               </md-list-item>
+               <md-list-item md-expand v-for="section in book.sections" :key="section.name">
+                  <span class="md-list-item-text">{{section.name}}</span>
+                  <md-list slot="md-expand">
+                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                        <span class="md-list-item-text">{{nestedPage.name}}</span>
+                     </md-list-item>
+                  </md-list>
+               </md-list-item>
+               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+                  <span class="md-list-item-text">{{page.name}}</span>
+               </md-list-item>
+            </md-list>
+         </md-app-drawer>
+         <md-app-content>
+            <div id="page">
+               <router-view></router-view>
+            </div>
+         </md-app-content>
+      </md-app>
+   </div>
 </template>
 
 <script>
@@ -139,21 +139,11 @@ export default {
 #page p {
   hyphens: auto;
   margin-top: 0;
-  margin-bottom: 0.625em;
+  margin-bottom: 0.5em;
 }
 
 #page p:first-of-type::first-letter {
   initial-letter: 3;
-}
-
-#page aside {
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 300;
-  font-size: 0.8rem;
-  line-height: 1.5625;
 }
 
 #page .game-term {
@@ -200,19 +190,47 @@ export default {
 #page small {
   font-size: 0.8rem;
 }
+/* Aside styles */
+#page aside {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.5625;
+}
+#page aside p {
+  font-size: 0.8rem;
+}
+#page aside h1 {
+  font-size: 3.052rem;
+}
+#page aside h2 {
+  font-size: 2.441rem;
+}
+#page aside h3 {
+  font-size: 1.953rem;
+}
+#page aside h4 {
+  font-size: 1.563rem;
+}
+#page aside h5 {
+  font-size: 1.25rem;
+}
+#page aside h6 {
+  font-size: 1rem;
+}
 
 @media screen and (min-width: 49em) {
   /* breakpoint for text intrusion sidebars */
-  #page aside {
-    width: 11.5em;
-    /* adjust line height */
-  }
-
   #page aside.left {
+    width: 11.5em;
     float: left;
     margin-left: -5.75em;
   }
   #page aside.right {
+    width: 11.5em;
     float: right;
     margin-right: -5.75em;
   }
@@ -243,74 +261,116 @@ export default {
     font-size: 0.9rem;
   }
   #page aside {
-    width: 11.5em;
     font-size: 0.9rem;
-    /* adjust line height */
   }
   #page aside.left {
+    width: 11.5em;
     float: left;
     margin-left: -12.5em;
+    /* adjust line height */
   }
   #page aside.right {
+    width: 11.5em;
     float: right;
     margin-right: -12.5em;
+    /* adjust line height */
+  }
+  #page aside p {
+    font-size: 0.9rem;
+  }
+  #page aside h1 {
+    font-size: 3.433rem;
+  }
+  #page aside h2 {
+    font-size: 2.747rem;
+  }
+  #page aside h3 {
+    font-size: 2.197rem;
+  }
+  #page aside h4 {
+    font-size: 1.758rem;
+  }
+  #page aside h5 {
+    font-size: 1.406rem;
+  }
+  #page aside h6 {
+    font-size: 1.125rem;
   }
 }
 @media screen and (min-width: 90em) {
-  #page aside {
-    width: 20em;
-    font-size: 0.9rem;
-    /* adjust line height */
-  }
   #page aside.left {
+    width: 20em;
     float: left;
     margin-left: -21em;
   }
   #page aside.right {
+    width: 20em;
     float: right;
     margin-right: -21em;
   }
 }
 @media screen and (min-width: 120em) {
   #page h1 {
-    font-size: 5.625rem;
+    font-size: 5.009rem;
   }
   #page h2 {
-    font-size: 4.1875rem;
+    font-size: 4.007rem;
   }
   #page h3 {
-    font-size: 3.1875rem;
+    font-size: 3.206rem;
   }
   #page h4 {
-    font-size: 2.375rem;
+    font-size: 2.564rem;
   }
   #page h5 {
-    font-size: 1.75rem;
+    font-size: 2.052rem;
   }
   #page h6 {
-    font-size: 1.3125rem;
+    font-size: 1.641rem;
   }
   #page p {
-    font-size: 1.3125rem;
-  }
-  #page p {
-    font-size: 1.25rem;
+    font-size: 1.313rem;
   }
   #page small {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   #page aside {
-    width: 25em;
-    font-size: 1rem;
-    /* adjust line height */
+    font-size: 1.05rem;
+    line-height: 1.64;
   }
   #page aside.left {
+    width: 25em;
     float: left;
     margin-left: -26em;
   }
   #page aside.right {
+    width: 25em;
     float: right;
     margin-right: -26em;
+  }
+  #page aside {
+    font-size: 1.05rem;
+  }
+  #page aside p {
+    font-size: 1.05rem;
+  }
+  #page aside h1 {
+    font-size: 4.007rem;
+  }
+  #page aside h2 {
+    font-size: 3.206rem;
+  }
+  #page aside h3 {
+    font-size: 2.564rem;
+  }
+  #page aside h4 {
+    font-size: 2.052rem;
+  }
+  #page aside h5 {
+    font-size: 1.641rem;
+  }
+  #page aside h6 {
+    font-size: 1.313rem;
   }
 }
 </style>
