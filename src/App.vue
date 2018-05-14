@@ -70,11 +70,14 @@ export default {
 
 @import "~vue-material/dist/theme/engine";
 
-@include md-register-theme("default", (
-   primary: md-get-palette-color(indigo, 900), 
-   accent: md-get-palette-color(blue, 200),
-   theme: dark
-));
+@include md-register-theme(
+  "default",
+  (
+    primary: md-get-palette-color(indigo, 900),
+    accent: md-get-palette-color(blue, 200),
+    theme: dark
+  )
+);
 
 @import "~vue-material/dist/theme/all";
 
@@ -191,7 +194,8 @@ export default {
   font-size: 0.8rem;
 }
 /* Aside styles */
-#page aside {
+#page aside,
+#page article {
   margin-left: 1em;
   margin-right: 1em;
   margin-top: 0;
@@ -200,25 +204,32 @@ export default {
   font-size: 0.8rem;
   line-height: 1.5625;
 }
-#page aside p {
+#page aside p,
+#page article p {
   font-size: 0.8rem;
 }
-#page aside h1 {
+#page aside h1,
+#page article h1 {
   font-size: 3.052rem;
 }
-#page aside h2 {
+#page aside h2,
+#page article h2 {
   font-size: 2.441rem;
 }
-#page aside h3 {
+#page aside h3,
+#page article h3 {
   font-size: 1.953rem;
 }
-#page aside h4 {
+#page aside h4,
+#page article h4 {
   font-size: 1.563rem;
 }
-#page aside h5 {
+#page aside h5,
+#page article h5 {
   font-size: 1.25rem;
 }
-#page aside h6 {
+#page aside h6,
+#page article h6 {
   font-size: 1rem;
 }
 
@@ -233,6 +244,16 @@ export default {
     width: 11.5em;
     float: right;
     margin-right: -5.75em;
+  }
+  #page article.left {
+    width: 30em;
+    float: left;
+    margin-left: -15em;
+  }
+  #page article.right {
+    width: 30em;
+    float: right;
+    margin-right: -15em;
   }
 }
 @media screen and (min-width: 60em) {
@@ -260,40 +281,46 @@ export default {
   #page small {
     font-size: 0.9rem;
   }
-  #page aside {
+  #page aside,
+  #page article {
     font-size: 0.9rem;
   }
   #page aside.left {
     width: 11.5em;
     float: left;
     margin-left: -12.5em;
-    /* adjust line height */
   }
   #page aside.right {
     width: 11.5em;
     float: right;
     margin-right: -12.5em;
-    /* adjust line height */
   }
-  #page aside p {
+  #page aside p,
+  #page article p {
     font-size: 0.9rem;
   }
-  #page aside h1 {
+  #page aside h1,
+  #page article h1 {
     font-size: 3.433rem;
   }
-  #page aside h2 {
+  #page aside h2,
+  #page article h2 {
     font-size: 2.747rem;
   }
-  #page aside h3 {
+  #page aside h3,
+  #page article h3 {
     font-size: 2.197rem;
   }
-  #page aside h4 {
+  #page aside h4,
+  #page article h4 {
     font-size: 1.758rem;
   }
-  #page aside h5 {
+  #page aside h5,
+  #page article h5 {
     font-size: 1.406rem;
   }
-  #page aside h6 {
+  #page aside h6,
+  #page article h6 {
     font-size: 1.125rem;
   }
 }
@@ -307,6 +334,16 @@ export default {
     width: 20em;
     float: right;
     margin-right: -21em;
+  }
+  #page article.left {
+    width: 38em;
+    float: left;
+    margin-left: -23em;
+  }
+  #page article.right {
+    width: 38em;
+    float: right;
+    margin-right: -23em;
   }
 }
 @media screen and (min-width: 120em) {
@@ -329,14 +366,14 @@ export default {
     font-size: 1.641rem;
   }
   #page p {
-    font-size: 1.313rem;
+    font-size: 1.3125rem;
   }
   #page small {
     font-size: 1.05rem;
   }
-  #page aside {
+  #page aside,
+  #page article {
     font-size: 1.05rem;
-    line-height: 1.64;
   }
   #page aside.left {
     width: 25em;
@@ -348,28 +385,42 @@ export default {
     float: right;
     margin-right: -26em;
   }
-  #page aside {
+  #page article.left {
+    width: 38em;
+    float: left;
+    margin-left: -23em;
+  }
+  #page article.right {
+    width: 38em;
+    float: right;
+    margin-right: -23em;
+  }
+  #page aside p,
+  #page article p {
     font-size: 1.05rem;
   }
-  #page aside p {
-    font-size: 1.05rem;
-  }
-  #page aside h1 {
+  #page aside h1,
+  #page article h1 {
     font-size: 4.007rem;
   }
-  #page aside h2 {
+  #page aside h2,
+  #page article h2 {
     font-size: 3.206rem;
   }
-  #page aside h3 {
+  #page aside h3,
+  #page article h3 {
     font-size: 2.564rem;
   }
-  #page aside h4 {
+  #page aside h4,
+  #page article h4 {
     font-size: 2.052rem;
   }
-  #page aside h5 {
+  #page aside h5,
+  #page article h5 {
     font-size: 1.641rem;
   }
-  #page aside h6 {
+  #page aside h6,
+  #page article h6 {
     font-size: 1.313rem;
   }
 }
