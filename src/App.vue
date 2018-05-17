@@ -134,6 +134,22 @@ export default {
   line-height: 1;
 }
 
+#page ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+#page ul li::before {
+  content: "–";
+  margin-right: 0.5em;
+}
+
+#page ul li {
+  text-indent: -1em;
+  list-style: none;
+}
+
 #page figure {
   max-width: 100%;
   overflow-x: scroll;
