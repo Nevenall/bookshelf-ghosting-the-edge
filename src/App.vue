@@ -106,13 +106,19 @@ export default {
 
 #page a {
   text-decoration: none;
-  border-bottom: 1px solid #000;
+  color: #90caf9;
+}
+#page a:hover,
+#page a:focus {
+  border-bottom: 1px solid #90caf9;
 }
 @supports (text-decoration-skip: ink) {
-  #page a {
-    text-decoration: underline 1px solid #000;
+  #page a:hover,
+  #page a:focus {
     text-decoration-skip: ink;
+    -webkit-text-decoration-skip: skip;
     border-bottom: 0;
+    border-bottom: 1px solid #90caf9;
   }
 }
 
@@ -138,6 +144,12 @@ export default {
   padding-left: 0;
   margin-left: 0;
   list-style: none;
+}
+
+#page li {
+  hyphens: auto;
+  margin-top: 0;
+  margin-bottom: 0.25em;
 }
 
 #page ul li::before {
