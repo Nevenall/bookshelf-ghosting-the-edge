@@ -1,41 +1,41 @@
 <template>
-   <div id="app" class="page-container">
-      <md-app md-waterfall md-mode="fixed">
-         <md-app-toolbar class="md-primary">
-            <md-button class="md-icon-button" @click="showNavigation = true">
-               <md-icon>menu</md-icon>
-            </md-button>
-            <span class="md-title">BookShelf
-               <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-         </md-app-toolbar>
-         <md-app-drawer :md-active.sync="showNavigation">
-            <md-toolbar class="md-primary" md-elevation="0">
-               <img src="./assets/logo.png" alt="BookShelf">
-            </md-toolbar>
-            <md-list>
-               <md-list-item @click="pushNav('./')">
-                  <h2>{{book.title}}</h2>
-               </md-list-item>
-               <md-list-item md-expand v-for="section in book.sections" :key="section.name">
-                  <span class="md-list-item-text">{{section.name}}</span>
-                  <md-list slot="md-expand">
-                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                        <span class="md-list-item-text">{{nestedPage.name}}</span>
-                     </md-list-item>
-                  </md-list>
-               </md-list-item>
-               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                  <span class="md-list-item-text">{{page.name}}</span>
-               </md-list-item>
-            </md-list>
-         </md-app-drawer>
-         <md-app-content>
-            <div id="page">
-               <router-view></router-view>
-            </div>
-         </md-app-content>
-      </md-app>
-   </div>
+    <div id="app" class="page-container">
+        <md-app md-waterfall md-mode="fixed">
+            <md-app-toolbar class="md-primary">
+                <md-button class="md-icon-button" @click="showNavigation = true">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <span class="md-title">BookShelf
+                    <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
+            </md-app-toolbar>
+            <md-app-drawer :md-active.sync="showNavigation">
+                <md-toolbar class="md-primary" md-elevation="0">
+                    <img src="./assets/logo.png" alt="BookShelf">
+                </md-toolbar>
+                <md-list>
+                    <md-list-item @click="pushNav('./')">
+                        <h2>{{book.title}}</h2>
+                    </md-list-item>
+                    <md-list-item md-expand v-for="section in book.sections" :key="section.name">
+                        <span class="md-list-item-text">{{section.name}}</span>
+                        <md-list slot="md-expand">
+                            <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                                <span class="md-list-item-text">{{nestedPage.name}}</span>
+                            </md-list-item>
+                        </md-list>
+                    </md-list-item>
+                    <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+                        <span class="md-list-item-text">{{page.name}}</span>
+                    </md-list-item>
+                </md-list>
+            </md-app-drawer>
+            <md-app-content>
+                <div id="page">
+                    <router-view></router-view>
+                </div>
+            </md-app-content>
+        </md-app>
+    </div>
 </template>
 
 <script>
@@ -125,6 +125,7 @@ export default {
 #page table {
   font-feature-settings: "lnum" on;
   border-collapse: collapse;
+  margin: 0;
 }
 
 @supports (font-variant-numeric: lining-nums) {
@@ -138,6 +139,34 @@ export default {
 #page th {
   padding: 0.125em 0.5em 0.25em 0.5em;
   line-height: 1;
+}
+
+#page figure {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0;
+}
+
+#page .quoted {
+  display: flex;
+  flex-direction: column;
+}
+#page .quoted p {
+  order: 1;
+}
+#page .quoted p::before {
+  content: "«";
+  margin-left: -1ch;
+}
+#page .quoted p::after {
+  content: "»";
+}
+#page .quoted footer {
+  order: 2;
+}
+/* insert a long dash and a narrow non-breaking space before the quote attribution */
+#page .quoted footer::before {
+  content: "—\202F";
 }
 
 #page ul {
@@ -162,11 +191,6 @@ export default {
   list-style: none;
 }
 
-#page figure {
-  max-width: 100%;
-  overflow-x: scroll;
-}
-
 #page p {
   hyphens: auto;
   margin-top: 0;
@@ -183,7 +207,7 @@ export default {
 
 #page .aspect {
   font-style: italic;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 #page h1,

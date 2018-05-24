@@ -10,3 +10,9 @@
   * or is it better to do break point styling? 
 * we should have separate sidebar and callout containers. sidebars go in margin, callouts have their own box. they might be articles not asides. they are still marginalia. well, some are. some are figures, like, the famous faces callout, vs a list of character creation stuff. 
   - sounds like we need several well defined containers. 
+
+
+Embed Abel, Roboto, and the material design icon fonts into the app for offline work. 
+
+Need a special fig caption like markup for a quote.
+maybe even a block quote container? 
