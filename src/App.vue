@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped >
+<style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -87,6 +87,12 @@ export default {
 
 :root {
   --primary-color: #002171;
+  /* --md-theme-default-primary */
+  /* --md-theme-default-accent  */
+  /* --md-theme-default-text-primary-on-background */
+  /* --md-theme-default-accent-on-background */
+  /* --md-theme-default-text-primary-on-accent */
+
   --secondary-color: #90caf9;
   --md-theme-default-background: #252729;
 }
