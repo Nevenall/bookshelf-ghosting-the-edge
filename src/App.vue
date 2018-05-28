@@ -1,41 +1,41 @@
 <template>
-   <div id="app" class="page-container">
-      <md-app md-waterfall md-mode="fixed">
-         <md-app-toolbar class="md-primary">
-            <md-button class="md-icon-button" @click="showNavigation = true">
-               <md-icon>menu</md-icon>
-            </md-button>
-            <span class="md-title">BookShelf
-               <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-         </md-app-toolbar>
-         <md-app-drawer :md-active.sync="showNavigation">
-            <md-toolbar class="md-primary" md-elevation="0">
-               <img src="./assets/logo.png" alt="BookShelf">
-            </md-toolbar>
-            <md-list>
-               <md-list-item @click="pushNav('./')">
-                  <h2>{{book.title}}</h2>
-               </md-list-item>
-               <md-list-item md-expand v-for="section in book.sections" :key="section.name">
-                  <span class="md-list-item-text">{{section.name}}</span>
-                  <md-list slot="md-expand">
-                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                        <span class="md-list-item-text">{{nestedPage.name}}</span>
-                     </md-list-item>
-                  </md-list>
-               </md-list-item>
-               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                  <span class="md-list-item-text">{{page.name}}</span>
-               </md-list-item>
-            </md-list>
-         </md-app-drawer>
-         <md-app-content>
-            <div id="page">
-               <router-view></router-view>
-            </div>
-         </md-app-content>
-      </md-app>
-   </div>
+    <div id="app" class="page-container">
+        <md-app md-waterfall md-mode="fixed">
+            <md-app-toolbar class="md-primary">
+                <md-button class="md-icon-button" @click="showNavigation = true">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <span class="md-title">BookShelf
+                    <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
+            </md-app-toolbar>
+            <md-app-drawer :md-active.sync="showNavigation">
+                <md-toolbar class="md-primary" md-elevation="0">
+                    <img src="./assets/logo.png" alt="BookShelf">
+                </md-toolbar>
+                <md-list>
+                    <md-list-item @click="pushNav('./')">
+                        <h2>{{book.title}}</h2>
+                    </md-list-item>
+                    <md-list-item md-expand v-for="section in book.sections" :key="section.name">
+                        <span class="md-list-item-text">{{section.name}}</span>
+                        <md-list slot="md-expand">
+                            <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                                <span class="md-list-item-text">{{nestedPage.name}}</span>
+                            </md-list-item>
+                        </md-list>
+                    </md-list-item>
+                    <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+                        <span class="md-list-item-text">{{page.name}}</span>
+                    </md-list-item>
+                </md-list>
+            </md-app-drawer>
+            <md-app-content>
+                <div id="page">
+                    <router-view></router-view>
+                </div>
+            </md-app-content>
+        </md-app>
+    </div>
 </template>
 
 <script>
@@ -72,11 +72,7 @@ export default {
 
 @include md-register-theme(
   "default",
-  (
-    primary: md-get-palette-color(indigo, 900),
-    accent: md-get-palette-color(blue, 200),
-    theme: dark
-  )
+  (primary: #002171, accent: #90caf9, theme: dark)
 );
 
 @import "~vue-material/dist/theme/all";
@@ -87,9 +83,15 @@ export default {
 </style>
 
 <style>
-/* You can adjust these styles to layout your pages. */
-
 @import "fonts.css";
+
+:root {
+  --primary-color: #002171;
+  --secondary-color: #90caf9;
+  /* --background-color: #424242; */
+  --background-color: #424242;
+  background-color: #222222;
+}
 
 #page div {
   font-family: "Raleway";
@@ -105,25 +107,19 @@ export default {
 }
 
 #page a {
-  text-decoration: none;
-  color: #90caf9;
-}
-
-#page a:hover,
-#page a:focus {
   text-decoration: underline;
+  color: var(--secondary-color);
   -webkit-text-decoration-skip: skip;
 }
+
 @supports (text-decoration-skip: ink) {
-  #page a:hover,
-  #page a:focus {
+  #page a {
     text-decoration-skip: ink;
   }
 }
 
 @supports (text-decoration-skip-ink: auto) {
-  #page a:hover,
-  #page a:focus {
+  #page a {
     text-decoration-skip-ink: auto;
   }
 }
@@ -139,6 +135,10 @@ export default {
   #page table {
     font-variant-numeric: lining-nums;
   }
+}
+
+#page th {
+  color: var(--secondary-color);
 }
 
 #page td,
@@ -161,11 +161,11 @@ export default {
   order: 1;
 }
 #page .quoted p::before {
-  content: "«";
-  margin-left: -1ch;
+  content: "«\202F";
+  margin-left: -1.5ch;
 }
 #page .quoted p::after {
-  content: "»";
+  content: "\202F»";
 }
 #page .quoted footer {
   order: 2;
@@ -173,6 +173,11 @@ export default {
 /* insert a long dash and a narrow non-breaking space before the quote attribution */
 #page .quoted footer::before {
   content: "—\202F";
+}
+
+#page blockquote {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 #page ul {
@@ -203,10 +208,6 @@ export default {
   margin-bottom: 0.5em;
 }
 
-#page p:first-of-type::first-letter {
-  initial-letter: 3;
-}
-
 #page .game-term {
   font-variant: small-caps;
 }
@@ -214,6 +215,10 @@ export default {
 #page .aspect {
   font-style: italic;
   font-weight: bold;
+}
+
+#page .fate-font {
+  font-family: "Fate";
 }
 
 #page h1,
@@ -228,6 +233,7 @@ export default {
   line-height: 1;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  color: var(--secondary-color);
 }
 
 #page h1 {
@@ -333,14 +339,14 @@ export default {
   #page h6 {
     font-size: 1.406rem;
   }
-  #page p {
+  #page p,
+  #page li,
+  #page a,
+  #page th,
+  #page td {
     font-size: 1.125rem;
   }
   #page small {
-    font-size: 0.9rem;
-  }
-  #page aside,
-  #page article {
     font-size: 0.9rem;
   }
   #page aside.left {
@@ -353,8 +359,18 @@ export default {
     float: right;
     margin-right: -12.5em;
   }
+  #page aside,
+  #page article,
   #page aside p,
-  #page article p {
+  #page aside li,
+  #page aside a,
+  #page aside th,
+  #page aside td,
+  #page article p,
+  #page article li,
+  #page article a,
+  #page article th,
+  #page article td {
     font-size: 0.9rem;
   }
   #page aside h1,
@@ -423,14 +439,14 @@ export default {
   #page h6 {
     font-size: 1.641rem;
   }
-  #page p {
+  #page p,
+  #page li,
+  #page a,
+  #page th,
+  #page td {
     font-size: 1.3125rem;
   }
   #page small {
-    font-size: 1.05rem;
-  }
-  #page aside,
-  #page article {
     font-size: 1.05rem;
   }
   #page aside.left {
@@ -453,8 +469,18 @@ export default {
     float: right;
     margin-right: -23em;
   }
+  #page aside,
+  #page article,
   #page aside p,
-  #page article p {
+  #page aside li,
+  #page aside a,
+  #page aside th,
+  #page aside td,
+  #page article p,
+  #page article li,
+  #page article a,
+  #page article th,
+  #page article td {
     font-size: 1.05rem;
   }
   #page aside h1,
