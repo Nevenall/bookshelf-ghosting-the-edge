@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -75,11 +75,11 @@ export default {
   (primary: #002171, accent: #90caf9, theme: dark)
 );
 
-@import "~vue-material/dist/theme/all";
-
 .md-app {
-  height: 100vh;
+  max-height: 100vh;
 }
+
+@import "~vue-material/dist/theme/all";
 </style>
 
 <style>
@@ -88,9 +88,7 @@ export default {
 :root {
   --primary-color: #002171;
   --secondary-color: #90caf9;
-  /* --background-color: #424242; */
-  --background-color: #424242;
-  background-color: #222222;
+  --md-theme-default-background: #252729;
 }
 
 #page div {
