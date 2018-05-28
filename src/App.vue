@@ -76,7 +76,7 @@ export default {
 );
 
 .md-app {
-  max-height: 100vh;
+  height: 100vh;
 }
 
 @import "~vue-material/dist/theme/all";
