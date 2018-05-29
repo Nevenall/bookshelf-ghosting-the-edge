@@ -151,11 +151,12 @@ export default {
   line-height: 1;
 }
 
-#page figure {
+#page .figure-table {
   max-width: 100%;
   overflow-x: auto;
   margin: 0;
 }
+
 
 #page .quoted {
   display: flex;
@@ -280,6 +281,10 @@ export default {
   font-weight: 300;
   font-size: 0.8rem;
   line-height: 1.5625;
+
+  border-top: 1px solid var(--secondary-color);
+  border-bottom:1px solid var(--secondary-color);
+
 }
 
 #page aside p {
@@ -288,7 +293,7 @@ export default {
 #page article p {
   font-size: 0.8rem;
 }
-#page aside h1{
+#page aside h1 {
   font-size: 3.052rem;
 }
 #page article h1 {
@@ -377,7 +382,7 @@ export default {
     float: right;
     margin-right: -12.5em;
   }
-    #page article.left {
+  #page article.left {
     width: 23em;
     float: left;
     margin-left: -12.5em;
@@ -428,9 +433,9 @@ export default {
   }
 }
 @media screen and (min-width: 90em) {
-   #page div{
-      max-width: 36em;
-   }
+  #page div {
+    max-width: 36em;
+  }
   #page aside.left {
     width: 15em;
     float: left;
@@ -481,9 +486,9 @@ export default {
   #page small {
     font-size: 1.05rem;
   }
-   #page div{
-      max-width: 38em;
-   }
+  #page div {
+    max-width: 38em;
+  }
   #page aside.left {
     width: 20em;
     float: left;
