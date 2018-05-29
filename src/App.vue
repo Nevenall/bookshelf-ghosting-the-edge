@@ -1,41 +1,41 @@
 <template>
-    <div id="app" class="page-container">
-        <md-app md-waterfall md-mode="fixed">
-            <md-app-toolbar class="md-primary">
-                <md-button class="md-icon-button" @click="showNavigation = true">
-                    <md-icon>menu</md-icon>
-                </md-button>
-                <span class="md-title">BookShelf
-                    <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-            </md-app-toolbar>
-            <md-app-drawer :md-active.sync="showNavigation">
-                <md-toolbar class="md-primary" md-elevation="0">
-                    <img src="./assets/logo.png" alt="BookShelf">
-                </md-toolbar>
-                <md-list>
-                    <md-list-item @click="pushNav('./')">
-                        <h2>{{book.title}}</h2>
-                    </md-list-item>
-                    <md-list-item md-expand v-for="section in book.sections" :key="section.name">
-                        <span class="md-list-item-text">{{section.name}}</span>
-                        <md-list slot="md-expand">
-                            <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                                <span class="md-list-item-text">{{nestedPage.name}}</span>
-                            </md-list-item>
-                        </md-list>
-                    </md-list-item>
-                    <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                        <span class="md-list-item-text">{{page.name}}</span>
-                    </md-list-item>
-                </md-list>
-            </md-app-drawer>
-            <md-app-content>
-                <div id="page">
-                    <router-view></router-view>
-                </div>
-            </md-app-content>
-        </md-app>
-    </div>
+   <div id="app" class="page-container">
+      <md-app md-waterfall md-mode="fixed">
+         <md-app-toolbar class="md-primary">
+            <md-button class="md-icon-button" @click="showNavigation = true">
+               <md-icon>menu</md-icon>
+            </md-button>
+            <span class="md-title">BookShelf
+               <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
+         </md-app-toolbar>
+         <md-app-drawer :md-active.sync="showNavigation">
+            <md-toolbar class="md-primary" md-elevation="0">
+               <img src="./assets/logo.png" alt="BookShelf">
+            </md-toolbar>
+            <md-list>
+               <md-list-item @click="pushNav('./')">
+                  <h2>{{book.title}}</h2>
+               </md-list-item>
+               <md-list-item md-expand v-for="section in book.sections" :key="section.name">
+                  <span class="md-list-item-text">{{section.name}}</span>
+                  <md-list slot="md-expand">
+                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                        <span class="md-list-item-text">{{nestedPage.name}}</span>
+                     </md-list-item>
+                  </md-list>
+               </md-list-item>
+               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+                  <span class="md-list-item-text">{{page.name}}</span>
+               </md-list-item>
+            </md-list>
+         </md-app-drawer>
+         <md-app-content>
+            <div id="page">
+               <router-view></router-view>
+            </div>
+         </md-app-content>
+      </md-app>
+   </div>
 </template>
 
 <script>
@@ -261,8 +261,17 @@ export default {
 #page small {
   font-size: 0.8rem;
 }
-/* Aside styles */
-#page aside,
+
+#page aside {
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.5625;
+}
+
 #page article {
   margin-left: 1em;
   margin-right: 1em;
@@ -272,31 +281,46 @@ export default {
   font-size: 0.8rem;
   line-height: 1.5625;
 }
-#page aside p,
+
+#page aside p {
+  font-size: 0.8rem;
+}
 #page article p {
   font-size: 0.8rem;
 }
-#page aside h1,
+#page aside h1{
+  font-size: 3.052rem;
+}
 #page article h1 {
   font-size: 3.052rem;
 }
-#page aside h2,
+#page aside h2 {
+  font-size: 2.441rem;
+}
 #page article h2 {
   font-size: 2.441rem;
 }
-#page aside h3,
+#page aside h3 {
+  font-size: 1.953rem;
+}
 #page article h3 {
   font-size: 1.953rem;
 }
-#page aside h4,
+#page aside h4 {
+  font-size: 1.563rem;
+}
 #page article h4 {
   font-size: 1.563rem;
 }
-#page aside h5,
+#page aside h5 {
+  font-size: 1.25rem;
+}
 #page article h5 {
   font-size: 1.25rem;
 }
-#page aside h6,
+#page aside h6 {
+  font-size: 1rem;
+}
 #page article h6 {
   font-size: 1rem;
 }
@@ -306,22 +330,12 @@ export default {
   #page aside.left {
     width: 11.5em;
     float: left;
-    margin-left: -5.75em;
+    margin-left: -7em;
   }
   #page aside.right {
     width: 11.5em;
     float: right;
-    margin-right: -5.75em;
-  }
-  #page article.left {
-    width: 30em;
-    float: left;
-    margin-left: -15em;
-  }
-  #page article.right {
-    width: 30em;
-    float: right;
-    margin-right: -15em;
+    margin-right: -7em;
   }
 }
 @media screen and (min-width: 60em) {
@@ -363,6 +377,17 @@ export default {
     float: right;
     margin-right: -12.5em;
   }
+    #page article.left {
+    width: 23em;
+    float: left;
+    margin-left: -12.5em;
+  }
+  #page article.right {
+    width: 23em;
+    float: right;
+    margin-right: -12.5em;
+  }
+
   #page aside,
   #page article,
   #page aside p,
@@ -403,25 +428,28 @@ export default {
   }
 }
 @media screen and (min-width: 90em) {
+   #page div{
+      max-width: 36em;
+   }
   #page aside.left {
-    width: 20em;
+    width: 15em;
     float: left;
-    margin-left: -21em;
+    margin-left: -16em;
   }
   #page aside.right {
-    width: 20em;
+    width: 15em;
     float: right;
-    margin-right: -21em;
+    margin-right: -16em;
   }
   #page article.left {
-    width: 38em;
+    width: 30em;
     float: left;
-    margin-left: -23em;
+    margin-left: -27em;
   }
   #page article.right {
-    width: 38em;
+    width: 30em;
     float: right;
-    margin-right: -23em;
+    margin-right: -27em;
   }
 }
 @media screen and (min-width: 120em) {
@@ -453,25 +481,28 @@ export default {
   #page small {
     font-size: 1.05rem;
   }
+   #page div{
+      max-width: 38em;
+   }
   #page aside.left {
-    width: 25em;
+    width: 20em;
     float: left;
-    margin-left: -26em;
+    margin-left: -21em;
   }
   #page aside.right {
-    width: 25em;
+    width: 20em;
     float: right;
-    margin-right: -26em;
+    margin-right: -21em;
   }
   #page article.left {
-    width: 38em;
+    width: 30em;
     float: left;
-    margin-left: -23em;
+    margin-left: -31em;
   }
   #page article.right {
-    width: 38em;
+    width: 30em;
     float: right;
-    margin-right: -23em;
+    margin-right: -31em;
   }
   #page aside,
   #page article,
