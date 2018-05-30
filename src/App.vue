@@ -157,7 +157,6 @@ export default {
   margin: 0;
 }
 
-
 #page .quoted {
   display: flex;
   flex-direction: column;
@@ -266,8 +265,8 @@ export default {
 #page aside {
   margin-left: 1em;
   margin-right: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   font-weight: 300;
   font-size: 0.8rem;
   line-height: 1.5625;
@@ -276,15 +275,33 @@ export default {
 #page article {
   margin-left: 1em;
   margin-right: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   font-weight: 300;
   font-size: 0.8rem;
   line-height: 1.5625;
+}
 
-  border-top: 1px solid var(--secondary-color);
-  border-bottom:1px solid var(--secondary-color);
+#page article::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--md-theme-default-background)
+  );
+}
 
+#page article::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--md-theme-default-background)
+  );
 }
 
 #page aside p {
