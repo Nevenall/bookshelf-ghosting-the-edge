@@ -13,11 +13,6 @@ something about the header margins.
 I tried the callouts as typical size font, but I think the thin font seems more like a mistake then an intention. 
 Could be thin font. 
 
-
-the border for callouts is a little weird when callouts are inline and their is a sidebar
-
-
-
 ## Widths & Margins
 
 Breakpoint | em | Pixels (px) | content width | sidebar width | callout width
@@ -59,3 +54,10 @@ Sidebar Width  | 11em
 Sidebar margin | 1em
 Callout Width  | 30em
 Callout Margin | 1em
+
+## Callout Borders
+
+could try a gradient from secondary color to white and see how that looks
+when the callout is inline and there is a sidebar in the margin the borders are wrong
+
+also, what about inline callouts? 
