@@ -167,9 +167,11 @@ export default {
 #page .quoted p::before {
   content: "«\202F";
   margin-left: -1.5ch;
+  color: var(--secondary-color);
 }
 #page .quoted p::after {
   content: "\202F»";
+  color: var(--secondary-color);
 }
 #page .quoted footer {
   order: 2;
@@ -280,6 +282,14 @@ export default {
   font-weight: 300;
   font-size: 0.8rem;
   line-height: 1.5625;
+
+  /* border-width: 2px 0 2px 0;
+  border-style: solid;
+  border-image: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--md-theme-default-background)
+  ) 1/2px; */
 }
 
 #page article::before {
