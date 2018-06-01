@@ -110,14 +110,14 @@ export default {
   font-feature-settings: "salt" on;
 }
 
-#page .columns{
-   column-count: 2;
-   /* column-rule-color: var(--secondary-color);
+#page .columns {
+  column-count: 2;
+  /* column-rule-color: var(--secondary-color);
    column-rule-width: 1px;
    column-rule-style: solid; */
-   column-gap:1em;
-   column-fill: balance;
-   column-width: 17em;
+  column-gap: 1em;
+  /* column-fill: balance; */
+  column-width: 17em;
 }
 
 #page a {
