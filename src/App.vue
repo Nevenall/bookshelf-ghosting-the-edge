@@ -165,12 +165,12 @@ export default {
   order: 1;
 }
 #page .quoted p::before {
-  content: "«\202F";
-  margin-left: -1.5ch;
+  content: "« ";
+  margin-left: -1ch;
   color: var(--secondary-color);
 }
 #page .quoted p::after {
-  content: "\202F»";
+  content: " »";
   color: var(--secondary-color);
 }
 #page .quoted footer {
@@ -183,7 +183,11 @@ export default {
 
 #page blockquote {
   margin-left: 1em;
-  margin-right: 1em;
+  margin-right: 2em;
+  padding-left: 1em;
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: var(--secondary-color);
 }
 
 #page ul {
