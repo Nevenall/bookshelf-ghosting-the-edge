@@ -112,9 +112,9 @@ export default {
 
 #page .columns{
    column-count: 2;
-   column-rule-color: var(--secondary-color);
+   /* column-rule-color: var(--secondary-color);
    column-rule-width: 1px;
-   column-rule-style: solid;
+   column-rule-style: solid; */
    column-gap:1em;
    column-fill: balance;
    column-width: 17em;
@@ -215,6 +215,7 @@ export default {
 #page ul li::before {
   content: "–";
   margin-right: 0.5em;
+  color: var(--secondary-color);
 }
 
 #page ul li {
