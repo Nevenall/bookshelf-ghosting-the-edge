@@ -115,9 +115,9 @@ export default {
   /* column-rule-color: var(--secondary-color);
    column-rule-width: 1px;
    column-rule-style: solid; */
-  column-gap: 1em;
+  column-gap: 2em;
   /* column-fill: balance; */
-  column-width: 17em;
+  column-width: 16.5em;
 }
 
 #page a {
