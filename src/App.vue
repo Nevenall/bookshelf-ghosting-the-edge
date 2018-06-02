@@ -112,12 +112,12 @@ export default {
 
 #page .columns {
   column-count: 2;
-  /* column-rule-color: var(--secondary-color);
-   column-rule-width: 1px;
-   column-rule-style: solid; */
   column-gap: 2em;
-  /* column-fill: balance; */
+  column-fill: balance;
   column-width: 16.5em;
+}
+#page .columns > ul {
+  margin-top: 0;
 }
 
 #page a {
@@ -204,6 +204,25 @@ export default {
   padding-left: 0;
   margin-left: 0;
   list-style: none;
+}
+
+#page ol {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+  counter-reset: mylist;
+}
+
+#page ol li::before {
+  counter-increment: mylist;
+  content: counter(mylist);
+  font-feature-settings: "lnum" on;
+  margin-right: 0.5em;
+  margin-left: -1em;
+  min-width: 1ch;
+  display: inline-block;
+  text-align: center;
+  color: var(--secondary-color);
 }
 
 #page li {
