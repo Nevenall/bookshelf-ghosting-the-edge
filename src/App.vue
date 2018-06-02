@@ -112,10 +112,11 @@ export default {
 
 #page .columns {
   column-count: 2;
-  column-gap: 2em;
+  column-gap: 3em;
   column-fill: balance;
-  column-width: 16.5em;
+  -webkit-column-fill: balance;
 }
+
 #page .columns > ul:first-child {
   margin-top: 0;
 }
@@ -162,9 +163,30 @@ export default {
 }
 
 #page .figure-table {
+  display: flex;
+  flex-direction: column;
+
   max-width: 100%;
   overflow-x: auto;
   margin: 0;
+}
+
+#page figure {
+  margin: 0;
+  padding: 0;
+}
+#page .figure-table figure {
+  order: 1;
+}
+#page .figure-table figcaption {
+  order: 2;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--secondary-color);
 }
 
 #page .quoted {

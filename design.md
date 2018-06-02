@@ -1,7 +1,5 @@
 # Design notes for Ghosting the Edge
 
-- style ordered lists
-- lists have a top/bottom margin that doesn't work with columns. 
 
 I would like the rythmn of the sidebars to match better. 
 something about the header margins. 
@@ -51,9 +49,3 @@ Sidebar margin | 1em
 Callout Width  | 30em
 Callout Margin | 1em
 
-## Callout Borders
-
-could try a gradient from secondary color to white and see how that looks
-when the callout is inline and there is a sidebar in the margin the borders are wrong
-
-also, what about inline callouts? 
