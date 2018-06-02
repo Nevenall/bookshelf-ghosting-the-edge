@@ -116,7 +116,7 @@ export default {
   column-fill: balance;
   column-width: 16.5em;
 }
-#page .columns > ul {
+#page .columns > ul:first-child {
   margin-top: 0;
 }
 
@@ -206,11 +206,18 @@ export default {
   list-style: none;
 }
 
+#page ul > ul {
+  margin-left: 1em;
+}
+
 #page ol {
   padding-left: 0;
   margin-left: 0;
   list-style: none;
   counter-reset: mylist;
+}
+#page ol > ol {
+  margin-left: 1em;
 }
 
 #page ol li::before {
@@ -316,14 +323,6 @@ export default {
   font-weight: 300;
   font-size: 0.8rem;
   line-height: 1.5625;
-
-  /* border-width: 2px 0 2px 0;
-  border-style: solid;
-  border-image: linear-gradient(
-    to right,
-    var(--secondary-color),
-    var(--md-theme-default-background)
-  ) 1/2px; */
 }
 
 #page article::before {
