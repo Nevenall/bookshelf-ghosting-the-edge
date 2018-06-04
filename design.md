@@ -1,11 +1,16 @@
 # Design notes for Ghosting the Edge
 
-
 I would like the rythmn of the sidebars to match better. 
 something about the header margins. 
 
 I tried the callouts as typical size font, but I think the thin font seems more like a mistake then an intention. 
-Could be thin font. 
+
+## Default Typographic Details
+
+I'm just about to where I can decide what should be general bookshelf styling and what is book specific. 
+
+
+
 
 ## Widths & Margins
 
