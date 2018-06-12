@@ -1,8 +1,7 @@
 // data model for a book and it's contents
 'use strict'
 
-import path from 'path'
-var rawPages = require.context('@/pages', true)
+var rawPages = require.context('@/pages', true);
 
 
 class Book {
@@ -61,10 +60,46 @@ class Page {
    }
 }
 
+var pageOrder = {
+   "title": "Ghosting the Edge",
+   "pages": [{
+       "name": "Introduction",
+       "path": "./README.html"
+     },
+     {
+       "name": "Ghosting the Edge",
+       "path": "./01 Ghosting the Edge.html"
+     },
+     {
+       "name": "The Usual Suspects",
+       "path": "./02 The Usual Suspects.html"
+     },
+     {
+       "name": "Gearing Up",
+       "path": "./03 Gearing Up.html"
+     },
+     {
+       "name": "Rules to Break",
+       "path": "./04 Rules to Break.html"
+     },
+     {
+       "name": "Running the Edge",
+       "path": "./05 Running the Edge.html"
+     },
+     {
+       "name": "Afterwards",
+       "path": "./06 Afterwards.html"
+     },
+     {
+       "name": "Typography",
+       "path": "./Typography.html"
+     }
+   ]
+ };
+ 
 
-var pages = rawPages.keys().map((key) => {
-   return new Page(path.basename(key, '.html'), key, rawPages(key))
+var pages = pageOrder.pages.map((p) => {
+   return new Page(p.name, p.path, rawPages(p.path));
 });
 
-
-export default new Book('Ghosting the Edge', pages)
+export default new Book(pageOrder.title, pages)

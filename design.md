@@ -10,6 +10,24 @@ I tried the callouts as typical size font, but I think the thin font seems more 
 I'm just about to where I can decide what should be general bookshelf styling and what is book specific. 
 
 
+## Page Nav
+
+A json array that specifies the full path of each page to include and it's
+
+page order, navigation
+
+
+PageOrder.json 
+``` json
+{
+  title: "Title of Book",
+  pages: [
+    // by def first page is the front page. 
+    { name: "name of page", path: "path of page" },
+    { name: "name of page", path: "path of page" }
+  ] 
+}
+```
 
 
 ## Widths & Margins

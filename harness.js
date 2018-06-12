@@ -73,11 +73,14 @@
 
 
 
-var url = require('url')
-
-var full = new URL("http://your.mom/path")
-var rooted = new URL("/path/to/thing")
-var relative = new URL("path/to/thing")
+// var book = require('./src/book');
 
 
+var fs = require('fs');
+
+
+var rawContent = fs.readFileSync("src/pages/PageOrder.json");
+var pageOrder = JSON.parse(rawContent);
+
+console.log(pageOrder);
 
