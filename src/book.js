@@ -60,7 +60,6 @@ class Page {
 }
 
 var pageOrder = {
-<<<<<<< HEAD
    "title": "Ghosting the Edge",
    "pages": [{
        "name": "Introduction",
@@ -95,51 +94,8 @@ var pageOrder = {
        "path": "./Typography.html"
      }
    ]
- };
+ }
  
-
-var pages = pageOrder.pages.map((p) => {
-   return new Page(p.name, p.path, rawPages(p.path));
-});
-
-export default new Book(pageOrder.title, pages)
-=======
-   "title": "BookShelf",
-   "pages": [{
-         "name": "Introduction",
-         "path": "./README.html"
-      },
-      {
-         "name": "Character Sheet",
-         "path": "./Character Sheet.html"
-      },
-      {
-         "name": "Making a Mage",
-         "path": "./System/Making a Mage.html"
-      },
-      {
-         "name": "Mundane Actions",
-         "path": "./System/Mundane Actions.html"
-      },
-      {
-         "name": "Working Magick",
-         "path": "./System/Working Magick.html"
-      },
-      {
-         "name": "Welcome to Reality",
-         "path": "./Setting/Welcome to Reality.html"
-      },
-      {
-         "name": "Avatars",
-         "path": "./Setting/Avatars.html"
-      },
-      {
-         "name": "Focus",
-         "path": "./Setting/Focus.html"
-      }
-   ]
-}
-
 var pages = pageOrder.pages.map((p) => {
    return new Page(p.name, p.path, rawPages(p.path))
 })
@@ -147,4 +103,3 @@ var pages = pageOrder.pages.map((p) => {
 var thisBook = new Book(pageOrder.title, pages)
 
 export default thisBook
->>>>>>> 645312b1f1116b0dc5d40502d9b03badebe937f1
