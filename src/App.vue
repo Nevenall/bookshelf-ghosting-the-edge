@@ -1,635 +1,82 @@
 <template>
-   <div id="app" class="page-container">
-      <md-app md-waterfall md-mode="fixed">
-         <md-app-toolbar class="md-primary">
-            <md-button class="md-icon-button" @click="showNavigation = true">
-               <md-icon>menu</md-icon>
-            </md-button>
-            <span class="md-title">BookShelf
-               <md-icon>keyboard_arrow_right</md-icon>{{book.title}}</span>
-         </md-app-toolbar>
-         <md-app-drawer :md-active.sync="showNavigation">
-            <md-toolbar class="md-primary" md-elevation="0">
-               <img src="./assets/logo.png" alt="BookShelf">
-            </md-toolbar>
-            <md-list>
-               <md-list-item @click="pushNav('./')">
-                  <h2>{{book.title}}</h2>
-               </md-list-item>
-               <md-list-item md-expand v-for="section in book.sections" :key="section.name">
-                  <span class="md-list-item-text">{{section.name}}</span>
-                  <md-list slot="md-expand">
-                     <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                        <span class="md-list-item-text">{{nestedPage.name}}</span>
-                     </md-list-item>
-                  </md-list>
-               </md-list-item>
-               <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-                  <span class="md-list-item-text">{{page.name}}</span>
-               </md-list-item>
-            </md-list>
-         </md-app-drawer>
-         <md-app-content>
+   <v-app dark>
+      <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
+         <v-list>
+            <v-list-tile avatar @click.stop="pushNav('./')">
+               <v-list-tile-avatar>
+                  <img src=./assets/logo.png alt=BookShelf />
+               </v-list-tile-avatar>
+               <v-list-tile-content>
+                  <v-list-tile-title>{{book.title}}</v-list-tile-title>
+               </v-list-tile-content>
+            </v-list-tile>
+            <v-list-group value="true" v-for="section in book.sections" :key="section.name">
+               <v-list-tile slot="activator">
+                  <v-list-tile-title v-text="section.name"></v-list-tile-title>
+               </v-list-tile>
+               <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
+                  <v-list-tile-content>
+                     <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
+                  </v-list-tile-content>
+               </v-list-tile>
+            </v-list-group>
+            <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
+               <v-list-tile-content>
+                  <v-list-tile-title v-text="page.name"></v-list-tile-title>
+               </v-list-tile-content>
+            </v-list-tile>
+         </v-list>
+      </v-navigation-drawer>
+      <v-toolbar app :clipped-left="clipped">
+         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+         <v-toolbar-title>
+            {{title}}
+            <v-icon>chevron_right</v-icon>{{book.title}}</v-toolbar-title>
+      </v-toolbar>
+      <v-content>
+         <v-container>
             <div id="page">
-               <router-view></router-view>
+               <v-slide-x-transition>
+                  <router-view></router-view>
+               </v-slide-x-transition>
             </div>
-         </md-app-content>
-      </md-app>
-   </div>
+         </v-container>
+      </v-content>
+   </v-app>
 </template>
 
 <script>
 import Book from "@/book";
 
 export default {
-  name: "app",
+  name: "App",
   data() {
     return {
-      book: {},
-      showNavigation: false
+      clipped: true,
+      drawer: false,
+      fixed: true,
+      book: Book,
+      title: "BookShelf"
     };
   },
-  created() {
-    this.book = Book;
-  },
-  components: {},
   methods: {
     pushNav(path) {
       // note - a little hack to correct pathing issues.
       var p = path.substring(1).replace(/ /g, "-");
-      this.showNavigation = false;
+      this.drawer = false;
       this.$router.push(p);
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+<style lang="scss">
+@import "fonts/system-fonts.css";
+@import "fonts/book-fonts.css";
 
-@import "~vue-material/dist/theme/engine";
-
-@include md-register-theme(
-  "default",
-  (primary: #002171, accent: #90caf9, theme: dark)
-);
-
-.md-app {
-  height: 100vh;
+#page {
+  @import "typography.scss";
+  @import "book.scss";
 }
 
-@import "~vue-material/dist/theme/all";
-</style>
-
-<style>
-@import "fonts.css";
-
-:root {
-  --primary-color: #002171;
-  /* --md-theme-default-primary */
-  /* --md-theme-default-accent  */
-  /* --md-theme-default-text-primary-on-background */
-  /* --md-theme-default-accent-on-background */
-  /* --md-theme-default-text-primary-on-accent */
-
-  --secondary-color: #90caf9;
-  --md-theme-default-background: #252729;
-}
-
-#page div {
-  font-family: "Raleway";
-  font-weight: normal;
-  max-width: 35em;
-  margin: auto;
-  font-size: 1rem;
-  line-height: 1.25;
-  letter-spacing: 0;
-  word-spacing: 0;
-  font-synthesis: none;
-  font-feature-settings: "salt" on;
-}
-
-#page .columns {
-  column-count: 2;
-  column-gap: 3em;
-}
-
-#page .columns > ul:first-child {
-  margin-top: 0;
-}
-
-#page a {
-  text-decoration: underline;
-  color: var(--secondary-color);
-  -webkit-text-decoration-skip: skip;
-}
-
-@supports (text-decoration-skip: ink) {
-  #page a {
-    text-decoration-skip: ink;
-  }
-}
-
-@supports (text-decoration-skip-ink: auto) {
-  #page a {
-    text-decoration-skip-ink: auto;
-  }
-}
-
-#page table {
-  font-feature-settings: "lnum" on;
-  font-feature-settings: "salt" on;
-  border-collapse: collapse;
-  margin: 0;
-}
-
-@supports (font-variant-numeric: lining-nums) {
-  #page table {
-    font-variant-numeric: lining-nums;
-  }
-}
-
-#page th {
-  color: var(--secondary-color);
-}
-
-#page td,
-#page th {
-  padding: 0.125em 0.5em 0.25em 0.5em;
-  line-height: 1;
-}
-
-#page .figure-table {
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-#page table caption {
-  caption-side: bottom;
-  /* border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: var(--secondary-color); */
-
-}
-#page table caption::before {
-  content: "";
-  display: block;
-  height: 2px;
-  margin-top:.5em;
-  margin-bottom: .5em;
-  background: linear-gradient(
-    to right,
-    var(--md-theme-default-background),
-    var(--secondary-color),
-    var(--md-theme-default-background)
-  );
-}
-
-#page figure {
-  margin: 0;
-  padding: 0;
-}
-
-#page .quoted {
-  display: flex;
-  flex-direction: column;
-}
-#page .quoted p {
-  order: 1;
-}
-#page .quoted p::before {
-  content: "« ";
-  margin-left: -1ch;
-  color: var(--secondary-color);
-}
-#page .quoted p::after {
-  content: " »";
-  color: var(--secondary-color);
-}
-#page .quoted footer {
-  order: 2;
-}
-/* insert a long dash and a narrow non-breaking space before the quote attribution */
-#page .quoted footer::before {
-  content: "—\202F";
-}
-
-#page blockquote {
-  margin-left: 1em;
-  margin-right: 2em;
-  padding-left: 1em;
-  border-left-width: 3px;
-  border-left-style: solid;
-  border-left-color: var(--secondary-color);
-}
-
-#page ul {
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none;
-}
-
-#page ul > ul {
-  margin-left: 1em;
-}
-
-#page ol {
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none;
-  counter-reset: mylist;
-}
-#page ol > ol {
-  margin-left: 1em;
-}
-
-#page ol li::before {
-  counter-increment: mylist;
-  content: counter(mylist);
-  font-feature-settings: "lnum" on;
-  margin-right: 0.5em;
-  margin-left: -1em;
-  min-width: 1ch;
-  display: inline-block;
-  text-align: center;
-  color: var(--secondary-color);
-}
-
-#page li {
-  hyphens: auto;
-  margin-top: 0;
-  margin-bottom: 0.25em;
-}
-
-#page ul li::before {
-  content: "–";
-  margin-right: 0.5em;
-  color: var(--secondary-color);
-}
-
-#page ul li {
-  text-indent: -1em;
-  list-style: none;
-}
-
-#page p {
-  hyphens: auto;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-
-#page .game-term {
-  font-variant: small-caps;
-}
-
-#page .aspect {
-  font-style: italic;
-  font-weight: bold;
-}
-
-#page .fate-font {
-  font-family: "Fate";
-}
-
-#page h1,
-#page h2,
-#page h3,
-#page h4,
-#page h5,
-#page h6 {
-  text-align: left;
-  font-family: "Abel";
-  font-weight: normal;
-  line-height: 1;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  color: var(--secondary-color);
-}
-
-#page h1 {
-  font-size: 3.815rem;
-}
-#page h2 {
-  font-size: 3.052rem;
-}
-#page h3 {
-  font-size: 2.441rem;
-}
-#page h4 {
-  font-size: 1.953rem;
-}
-#page h5 {
-  font-size: 1.563rem;
-}
-#page h6 {
-  font-size: 1.25rem;
-}
-#page small {
-  font-size: 0.8rem;
-}
-
-#page aside {
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  font-weight: 300;
-  font-size: 0.8rem;
-  line-height: 1.5625;
-}
-
-#page article {
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  font-weight: 300;
-  font-size: 0.8rem;
-  line-height: 1.5625;
-}
-
-#page article::before {
-  content: "";
-  display: block;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    var(--secondary-color),
-    var(--md-theme-default-background)
-  );
-}
-
-#page article::after {
-  content: "";
-  display: block;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    var(--secondary-color),
-    var(--md-theme-default-background)
-  );
-}
-
-#page aside p {
-  font-size: 0.8rem;
-}
-#page article p {
-  font-size: 0.8rem;
-}
-#page aside h1 {
-  font-size: 3.052rem;
-}
-#page article h1 {
-  font-size: 3.052rem;
-}
-#page aside h2 {
-  font-size: 2.441rem;
-}
-#page article h2 {
-  font-size: 2.441rem;
-}
-#page aside h3 {
-  font-size: 1.953rem;
-}
-#page article h3 {
-  font-size: 1.953rem;
-}
-#page aside h4 {
-  font-size: 1.563rem;
-}
-#page article h4 {
-  font-size: 1.563rem;
-}
-#page aside h5 {
-  font-size: 1.25rem;
-}
-#page article h5 {
-  font-size: 1.25rem;
-}
-#page aside h6 {
-  font-size: 1rem;
-}
-#page article h6 {
-  font-size: 1rem;
-}
-
-@media screen and (min-width: 49em) {
-  /* breakpoint for text intrusion sidebars */
-  #page aside.left {
-    width: 11.5em;
-    float: left;
-    margin-left: -7em;
-  }
-  #page aside.right {
-    width: 11.5em;
-    float: right;
-    margin-right: -7em;
-  }
-}
-@media screen and (min-width: 60em) {
-  #page h1 {
-    font-size: 4.292rem;
-  }
-  #page h2 {
-    font-size: 3.433rem;
-  }
-  #page h3 {
-    font-size: 2.747rem;
-  }
-  #page h4 {
-    font-size: 2.197rem;
-  }
-  #page h5 {
-    font-size: 1.758rem;
-  }
-  #page h6 {
-    font-size: 1.406rem;
-  }
-  #page p,
-  #page li,
-  #page a,
-  #page th,
-  #page td {
-    font-size: 1.125rem;
-  }
-  #page small {
-    font-size: 0.9rem;
-  }
-  #page aside.left {
-    width: 11.5em;
-    float: left;
-    margin-left: -12.5em;
-  }
-  #page aside.right {
-    width: 11.5em;
-    float: right;
-    margin-right: -12.5em;
-  }
-  #page article.left {
-    width: 23em;
-    float: left;
-    margin-left: -12.5em;
-  }
-  #page article.right {
-    width: 23em;
-    float: right;
-    margin-right: -12.5em;
-  }
-
-  #page aside,
-  #page article,
-  #page aside p,
-  #page aside li,
-  #page aside a,
-  #page aside th,
-  #page aside td,
-  #page article p,
-  #page article li,
-  #page article a,
-  #page article th,
-  #page article td {
-    font-size: 0.9rem;
-  }
-  #page aside h1,
-  #page article h1 {
-    font-size: 3.433rem;
-  }
-  #page aside h2,
-  #page article h2 {
-    font-size: 2.747rem;
-  }
-  #page aside h3,
-  #page article h3 {
-    font-size: 2.197rem;
-  }
-  #page aside h4,
-  #page article h4 {
-    font-size: 1.758rem;
-  }
-  #page aside h5,
-  #page article h5 {
-    font-size: 1.406rem;
-  }
-  #page aside h6,
-  #page article h6 {
-    font-size: 1.125rem;
-  }
-}
-@media screen and (min-width: 90em) {
-  #page div {
-    max-width: 36em;
-  }
-  #page aside.left {
-    width: 15em;
-    float: left;
-    margin-left: -16em;
-  }
-  #page aside.right {
-    width: 15em;
-    float: right;
-    margin-right: -16em;
-  }
-  #page article.left {
-    width: 30em;
-    float: left;
-    margin-left: -27em;
-  }
-  #page article.right {
-    width: 30em;
-    float: right;
-    margin-right: -27em;
-  }
-}
-@media screen and (min-width: 120em) {
-  #page h1 {
-    font-size: 5.009rem;
-  }
-  #page h2 {
-    font-size: 4.007rem;
-  }
-  #page h3 {
-    font-size: 3.206rem;
-  }
-  #page h4 {
-    font-size: 2.564rem;
-  }
-  #page h5 {
-    font-size: 2.052rem;
-  }
-  #page h6 {
-    font-size: 1.641rem;
-  }
-  #page p,
-  #page li,
-  #page a,
-  #page th,
-  #page td {
-    font-size: 1.3125rem;
-  }
-  #page small {
-    font-size: 1.05rem;
-  }
-  #page div {
-    max-width: 38em;
-  }
-  #page aside.left {
-    width: 20em;
-    float: left;
-    margin-left: -21em;
-  }
-  #page aside.right {
-    width: 20em;
-    float: right;
-    margin-right: -21em;
-  }
-  #page article.left {
-    width: 30em;
-    float: left;
-    margin-left: -31em;
-  }
-  #page article.right {
-    width: 30em;
-    float: right;
-    margin-right: -31em;
-  }
-  #page aside,
-  #page article,
-  #page aside p,
-  #page aside li,
-  #page aside a,
-  #page aside th,
-  #page aside td,
-  #page article p,
-  #page article li,
-  #page article a,
-  #page article th,
-  #page article td {
-    font-size: 1.05rem;
-  }
-  #page aside h1,
-  #page article h1 {
-    font-size: 4.007rem;
-  }
-  #page aside h2,
-  #page article h2 {
-    font-size: 3.206rem;
-  }
-  #page aside h3,
-  #page article h3 {
-    font-size: 2.564rem;
-  }
-  #page aside h4,
-  #page article h4 {
-    font-size: 2.052rem;
-  }
-  #page aside h5,
-  #page article h5 {
-    font-size: 1.641rem;
-  }
-  #page aside h6,
-  #page article h6 {
-    font-size: 1.313rem;
-  }
-}
 </style>

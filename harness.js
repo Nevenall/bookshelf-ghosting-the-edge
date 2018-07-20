@@ -1,5 +1,6 @@
-'use strict'
+const str = `module.exports = "<p>some html dude</p>"`
 
+const what = [str]
 
 // class Book {
 //    // pages is an array of Page objects
@@ -75,6 +76,8 @@
 
 // var book = require('./src/book');
 
+const json = JSON.stringify(str)
+// const obj = JSON.parse(str)
 
 var fs = require('fs');
 
@@ -84,3 +87,4 @@ var pageOrder = JSON.parse(rawContent);
 
 console.log(pageOrder);
 
+console.log(str)
