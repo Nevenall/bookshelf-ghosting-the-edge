@@ -1,11 +1,219 @@
 // custom styles
 $primary-color: #002171;
 $secondary-color: #90caf9;
+$background-color: #303030;
+& {
+    font-family: "Raleway";
+    font-weight: normal;
+    font-feature-settings: "salt" on;
+}
+
+.columns {
+    column-count: 2;
+    column-gap: 3em;
+}
+
+.columns>ul:first-child {
+    margin-top: 0;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+    text-align: left;
+    font-family: "Abel";
+    font-weight: normal;
+    line-height: 1;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     color: $secondary-color;
+}
+
+// a {
+//     text-decoration: underline;
+//     color: $secondary-color;
+//     -webkit-text-decoration-skip: skip;
+// }
+// @supports (text-decoration-skip: ink) {
+//     a {
+//         text-decoration-skip: ink;
+//     }
+// }
+// @supports (text-decoration-skip-ink: auto) {
+//     a {
+//         text-decoration-skip-ink: auto;
+//     }
+// }
+table {
+    font-feature-settings: "lnum" on;
+    font-feature-settings: "salt" on;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+@supports (font-variant-numeric: lining-nums) {
+    table {
+        font-variant-numeric: lining-nums;
+    }
+}
+
+th {
+    color: $secondary-color;
+}
+
+td,
+th {
+    padding: 0.125em 0.5em 0.25em 0.5em;
+    line-height: 1;
+}
+
+.figure-table {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+table caption {
+    caption-side: bottom;
+    /* border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: $secondary-color; */
+}
+
+table caption::before {
+    content: "";
+    display: block;
+    height: 2px;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    background: linear-gradient( to right, $background-color, $secondary-color, $background-color);
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+.quoted {
+    display: flex;
+    flex-direction: column;
+}
+
+.quoted p {
+    order: 1;
+}
+
+.quoted p::before {
+    content: "« ";
+    margin-left: -1ch;
+    color: $secondary-color;
+}
+
+.quoted p::after {
+    content: " »";
+    color: $secondary-color;
+}
+
+.quoted footer {
+    order: 2;
+}
+
+/* insert a long dash and a narrow non-breaking space before the quote attribution */
+
+.quoted footer::before {
+    content: "—\202F";
+}
+
+blockquote {
+    margin-left: 1em;
+    margin-right: 2em;
+    padding-left: 1em;
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-left-color: $secondary-color;
+}
+
+ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+}
+
+ul>ul {
+    margin-left: 1em;
+}
+
+ol {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+    counter-reset: mylist;
+}
+
+ol>ol {
+    margin-left: 1em;
+}
+
+ol li::before {
+    counter-increment: mylist;
+    content: counter(mylist);
+    font-feature-settings: "lnum" on;
+    margin-right: 0.5em;
+    margin-left: -1em;
+    min-width: 1ch;
+    display: inline-block;
+    text-align: center;
+    color: $secondary-color;
+}
+
+li {
+    hyphens: auto;
+    margin-top: 0;
+    margin-bottom: 0.25em;
+}
+
+ul li::before {
+    content: "–";
+    margin-right: 0.5em;
+    color: $secondary-color;
+}
+
+ul li {
+    text-indent: -1em;
+    list-style: none;
+}
+
+p {
+    hyphens: auto;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.game-term {
+    font-variant: small-caps;
+}
+
+.aspect {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.fate-font {
+    font-family: "Fate";
+}
+
+article::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient( to right, $secondary-color, $background-color);
+}
+
+article::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient( to right, $secondary-color, $background-color);
 }
