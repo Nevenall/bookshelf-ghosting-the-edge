@@ -1,8 +1,6 @@
-/* define font faces for your book here and place the files in fonts/ */
-@import url("https://fonts.googleapis.com/icon?family=Abel");
-/* Raleway supports these features */
+/* define font faces for your book here and place the files in  */
 
-/* 
+/* Raleway supports these features 
    font-feature-settings: "salt" on;
    font-feature-settings: "aalt" off;
    font-feature-settings: "dlig" off;
@@ -15,48 +13,55 @@
 */
 
 @font-face {
-    font-family: 'Raleway';
-    font-style: italic;
-    font-weight: 300;
-    src: url(fonts/raleway-lightitalic.woff2) format('woff2'), url(fonts/raleway-lightitalic.woff) format('woff');
+   font-family: 'Abel';
+   font-style: regular;
+   font-weight: 400;
+   src: url(Abel-Regular.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: 'Raleway';
-    font-style: italic;
-    font-weight: 400;
-    src: url(fonts/raleway-italic.woff2) format('woff2'), url(fonts/raleway-italic.woff) format('woff');
+   font-family: 'Raleway';
+   font-style: Italic;
+   font-weight: 300;
+   src: url(Raleway-LightItalic.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: 'Raleway';
-    font-style: italic;
-    font-weight: 700;
-    src: url(fonts/raleway-bolditalic.woff2) format('woff2'), url(fonts/raleway-bolditalic.woff) format('woff');
+   font-family: 'Raleway';
+   font-style: Italic;
+   font-weight: 400;
+   src: url(Raleway-Italic.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 300;
-    src: url(fonts/raleway-light.woff2) format('woff2'), url(fonts/raleway-light.woff) format('woff');
+   font-family: 'Raleway';
+   font-style: Italic;
+   font-weight: 700;
+   src: url(Raleway-BoldItalic.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    src: url(fonts/raleway-regular.woff2) format('woff2'), url(fonts/raleway-regular.woff) format('woff');
+   font-family: 'Raleway';
+   font-style: normal;
+   font-weight: 300;
+   src: url(Raleway-Light.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 700;
-    src: url(fonts/raleway-bold.woff2) format('woff2'), url(fonts/raleway-bold.woff) format('woff');
+   font-family: 'Raleway';
+   font-style: normal;
+   font-weight: 400;
+   src: url(Raleway-Regular.woff2) format('woff2');
 }
 
 @font-face {
-    font-family: 'Fate';
-    src: url(fonts/fate-core.woff2) format('woff2'), url(fonts/fate-core.woff) format('woff');
+   font-family: 'Raleway';
+   font-style: normal;
+   font-weight: 700;
+   src: url(Raleway-Bold.woff2) format('woff2');
+}
+
+@font-face {
+   font-family: 'Fate';
+   src: url(Fate-Core.woff2) format('woff2');
 }
