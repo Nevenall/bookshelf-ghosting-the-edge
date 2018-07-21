@@ -5,29 +5,6 @@ something about the header margins.
 
 I tried the callouts as typical size font, but I think the thin font seems more like a mistake then an intention. 
 
-## Default Typographic Details
-
-I'm just about to where I can decide what should be general bookshelf styling and what is book specific. 
-
-
-## Page Nav
-
-A json array that specifies the full path of each page to include and it's
-
-page order, navigation
-
-
-PageOrder.json 
-``` json
-{
-  title: "Title of Book",
-  pages: [
-    // by def first page is the front page. 
-    { name: "name of page", path: "path of page" },
-    { name: "name of page", path: "path of page" }
-  ] 
-}
-```
 
 
 ## Widths & Margins
@@ -125,5 +102,6 @@ or each book can just edit the typography values.
 - [x] Add basic typography to App.vue
 - [x] add roboto and material design icon fonts as woff(2) files so they can be embedded in the package.
 - [x] clean up the scss 
-- [ ] need to be able to assign theme colors in css before we can merge
-- [ ] make a reduced version of material-icons because we only need like two icons
+- [x] need to be able to assign theme colors in css before we can merge
+- [x] make a reduced version of material-icons because we only need like two icons
+- [ ] the half monitor break break point (960px) seems to be a little off. The small sidebar font seems a little too small.
