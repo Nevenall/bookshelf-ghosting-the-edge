@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
    pwa: {
-      name: 'BookShelf'
+      name: 'GhostingTheEdge'
    },
    devServer: {
       stats: "verbose",
