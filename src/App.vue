@@ -36,9 +36,9 @@
       <v-content>
          <v-container>
             <div id="page">
-               <v-slide-x-transition>
+               <!-- <v-slide-x-transition> -->
                   <router-view></router-view>
-               </v-slide-x-transition>
+               <!-- </v-slide-x-transition> -->
             </div>
          </v-container>
       </v-content>
