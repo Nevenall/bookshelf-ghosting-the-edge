@@ -4,7 +4,7 @@
          <v-list>
             <v-list-tile avatar @click.stop="pushNav('./')">
                <v-list-tile-avatar>
-                  <img src=./assets/logo.png alt=BookShelf />
+                  <img src=./assets/logo.png alt=GhostingLogo />
                </v-list-tile-avatar>
                <v-list-tile-content>
                   <v-list-tile-title>{{book.title}}</v-list-tile-title>
@@ -25,7 +25,10 @@
                   <v-list-tile-title v-text="page.name"></v-list-tile-title>
                </v-list-tile-content>
             </v-list-tile>
+            <v-divider/>
+            <v-list-tile>An instance of BookShelf.press</v-list-tile>
          </v-list>
+       
       </v-navigation-drawer>
       <v-toolbar app :clipped-left="clipped">
          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -36,9 +39,7 @@
       <v-content>
          <v-container>
             <div id="page">
-               <!-- <v-slide-x-transition> -->
                   <router-view></router-view>
-               <!-- </v-slide-x-transition> -->
             </div>
          </v-container>
       </v-content>
