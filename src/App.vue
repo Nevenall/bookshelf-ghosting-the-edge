@@ -1,11 +1,23 @@
 <template>
    <v-app dark>
       <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
+         <v-card>
+            <v-card-media class="white--text" height="200px" :src="require('./assets/logo.jpg')">
+               <v-container fill-height fluid>
+                  <v-layout fill-height>
+                     <v-flex xs12 align-end flexbox>
+                        <span class="headline">Ghosting the Edge</span>
+                     </v-flex>
+                  </v-layout>
+               </v-container>
+            </v-card-media>
+         </v-card>
          <v-list>
             <v-list-tile avatar @click.stop="pushNav('./')">
-               <v-list-tile-avatar>
+
+               <!-- <v-list-tile-avatar>
                   <img src=./assets/logo.png alt=GhostingLogo />
-               </v-list-tile-avatar>
+               </v-list-tile-avatar> -->
                <v-list-tile-content>
                   <v-list-tile-title>{{book.title}}</v-list-tile-title>
                </v-list-tile-content>
@@ -25,10 +37,9 @@
                   <v-list-tile-title v-text="page.name"></v-list-tile-title>
                </v-list-tile-content>
             </v-list-tile>
-            <v-divider/>
+            <v-divider></v-divider>
             <v-list-tile>An instance of BookShelf.press</v-list-tile>
          </v-list>
-       
       </v-navigation-drawer>
       <v-toolbar app :clipped-left="clipped">
          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -39,7 +50,7 @@
       <v-content>
          <v-container>
             <div id="page">
-                  <router-view></router-view>
+               <router-view></router-view>
             </div>
          </v-container>
       </v-content>
@@ -48,6 +59,7 @@
 
 <script>
 import Book from "@/book";
+import logo from "@/assets/logo.jpg";
 
 export default {
   name: "App",
@@ -79,5 +91,4 @@ export default {
   @import "typography.scss";
   @import "book.scss";
 }
-
 </style>
