@@ -8,9 +8,8 @@
                      <v-flex xs12 align-end flexbox>
                         <v-list-tile @click="pushNav('./')">
                            <v-list-tile-content>
-                              <span class="headline">Ghosting the Edge</span>
+                              <span class="headline">{{book.title}}</span>
                            </v-list-tile-content>
-
                         </v-list-tile>
                      </v-flex>
                   </v-layout>
@@ -18,15 +17,6 @@
             </v-card-media>
          </v-card>
          <v-list>
-            <!-- <v-list-tile avatar @click.stop="pushNav('./')">
-
-               <v-list-tile-avatar>
-                  <img src=./assets/logo.png alt=GhostingLogo />
-               </v-list-tile-avatar>
-               <v-list-tile-content>
-                  <v-list-tile-title>{{book.title}}</v-list-tile-title>
-               </v-list-tile-content>
-            </v-list-tile> -->
             <v-list-group value="true" v-for="section in book.sections" :key="section.name">
                <v-list-tile slot="activator">
                   <v-list-tile-title v-text="section.name"></v-list-tile-title>
