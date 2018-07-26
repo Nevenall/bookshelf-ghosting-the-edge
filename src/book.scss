@@ -2,13 +2,6 @@
 $primary-color: #002171;
 $secondary-color: #90caf9;
 $background-color: #303030;
-$primary: #90caf9;
-$secondary: #90caf9;
-$accent: #B388FF;
-$error: #FF8A80;
-$warning: #FFFF8D;
-$info: #82B1FF;
-$success: #CCFF90;
 & {
    font-family: "Raleway";
    font-weight: normal;
@@ -30,12 +23,8 @@ h3,
 h4,
 h5,
 h6 {
-   text-align: left;
    font-family: "Abel";
    font-weight: normal;
-   line-height: 1;
-   margin-top: 0.5em;
-   margin-bottom: 0.5em;
    color: $secondary-color;
 }
 
@@ -45,7 +34,6 @@ a {
    text-decoration-skip: ink;
    text-decoration-skip-ink: auto;
 }
-
 
 table {
    font-feature-settings: "lnum" on;
