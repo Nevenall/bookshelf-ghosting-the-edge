@@ -2,7 +2,15 @@ const path = require('path')
 
 module.exports = {
    pwa: {
-      name: 'GhostingTheEdge'
+      name: 'Ghosting the Edge',
+      themeColor: '#82B1FF',
+      iconPaths: {
+         favicon32: 'icons/favicon-32x32.png',
+         favicon16: 'icons/favicon-16x16.png',
+         appleTouchIcon: 'icons/apple-touch-icon.png',
+         maskIcon: 'icons/safari-pinned-tab.svg',
+         msTileImage: 'icons/mstile-150x150.png'
+      }
    },
    devServer: {
       stats: "verbose",
