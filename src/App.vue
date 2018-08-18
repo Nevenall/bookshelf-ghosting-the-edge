@@ -6,13 +6,25 @@
          </md-button>
          <span class="md-title">BookShelf
             <md-icon>chevron_right</md-icon>
+            Ghosting the Edge
          </span>
       </md-app-toolbar>
       <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
-         <div class="drawer-logo">
-            <img src="./assets/logo-vertical.png" alt="bookshelf logo">
-         </div>
-          <md-list>
+
+         <md-card>
+            <md-card-media-cover md-text-scrim>
+               <md-card-media md-ratio="16:9">
+                  <img src="./assets/logo.jpg" alt="logo" />
+               </md-card-media>
+               <md-card-area>
+                  <md-card-header>
+                     <span class="md-title">Ghosting the Edge</span>
+                  </md-card-header>
+               </md-card-area>
+            </md-card-media-cover>
+         </md-card>
+
+         <md-list>
             <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                <span class="md-list-item-text">{{section.name}}</span>
                <md-list slot="md-expand">
@@ -58,7 +70,7 @@ export default {
 
 @include md-register-theme(
   "default",
-  (primary: #448aff, accent: #ff6600, background: #ffffff)
+  (primary: #002171, accent: #90caf9, background: #303030)
 );
 @import "~vue-material/dist/theme/all";
 @import "fonts/system-fonts.css";
@@ -69,9 +81,7 @@ html {
 .md-app {
   height: 100vh;
 }
-.drawer-logo {
-  padding: 10px;
-}
+
 #page {
   @import "typography.scss";
   @import "book.scss";
