@@ -17,7 +17,7 @@
                </md-card-media>
                <md-card-area>
                   <md-card-header>
-                     <span class="md-title">Ghosting the Edge</span>
+                     <span class="md-title accent-color">Ghosting the Edge</span>
                   </md-card-header>
                </md-card-area>
             </md-card-media-cover>
@@ -79,7 +79,9 @@ html {
 .md-app {
   height: 100vh;
 }
-
+.accent-color{
+   color: var(--md-theme-default-accent);
+}
 #page {
   @import "typography.scss";
   @import "book.scss";
