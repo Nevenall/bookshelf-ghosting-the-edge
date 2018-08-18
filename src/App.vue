@@ -79,8 +79,8 @@ html {
 .md-app {
   height: 100vh;
 }
-.accent-color{
-   color: var(--md-theme-default-accent);
+.accent-color {
+  color: var(--md-theme-default-accent);
 }
 #page {
   @import "typography.scss";
