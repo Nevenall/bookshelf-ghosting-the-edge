@@ -10,7 +10,6 @@
          </span>
       </md-app-toolbar>
       <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
-
          <md-card>
             <md-card-media-cover md-text-scrim>
                <md-card-media md-ratio="16:9">
@@ -23,7 +22,6 @@
                </md-card-area>
             </md-card-media-cover>
          </md-card>
-
          <md-list>
             <md-list-item md-expand v-for="section in book.sections" :key="section.name">
                <span class="md-list-item-text">{{section.name}}</span>
