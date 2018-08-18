@@ -1,55 +1,33 @@
 <template>
-   <v-app dark>
-      <v-navigation-drawer :clipped="clipped" v-model="drawer" disable-route-watcher disable-resize-watcher app>
-         <v-card>
-            <v-card-media class="text-white" height="200px" :src="require('./assets/logo.jpg')">
-               <v-container fill-height fluid>
-                  <v-layout fill-height align-end>
-                     <v-flex xs12 align-end flexbox>
-                        <v-list-tile @click="pushNav('./')">
-                           <v-list-tile-content>
-                              <span class="headline">{{book.title}}</span>
-                           </v-list-tile-content>
-                        </v-list-tile>
-                     </v-flex>
-                  </v-layout>
-               </v-container>
-            </v-card-media>
-         </v-card>
-         <v-list>
-            <v-list-group value="true" v-for="section in book.sections" :key="section.name">
-               <v-list-tile slot="activator">
-                  <v-list-tile-title v-text="section.name"></v-list-tile-title>
-               </v-list-tile>
-               <v-list-tile value="true" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">
-                  <v-list-tile-content>
-                     <v-list-tile-title v-text="nestedPage.name"></v-list-tile-title>
-                  </v-list-tile-content>
-               </v-list-tile>
-            </v-list-group>
-            <v-list-tile value="true" v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">
-               <v-list-tile-content>
-                  <v-list-tile-title v-text="page.name"></v-list-tile-title>
-               </v-list-tile-content>
-            </v-list-tile>
-            <v-divider></v-divider>
-            <v-list-tile>An instance of BookShelf.press</v-list-tile>
-         </v-list>
-      </v-navigation-drawer>
-      <v-toolbar app :clipped-left="clipped">
-         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-         <v-toolbar-title>
-            {{title}}
-            <v-icon>chevron_right</v-icon>{{book.title}}</v-toolbar-title>
-      </v-toolbar>
-      <v-content>
-         <v-container>
-            <div id="page">
-               <router-view></router-view>
-            </div>
-         </v-container>
-      </v-content>
-   </v-app>
+   <md-app md-waterfall md-mode="fixed">
+      <md-app-toolbar class="md-primary" md-elevation="1">
+         <md-button class="md-icon-button" @click="drawer = true">
+            <md-icon>menu</md-icon>
+         </md-button>
+         <span class="md-title">BookShelf
+            <md-icon>chevron_right</md-icon>
+         </span>
+      </md-app-toolbar>
+      <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer">
+         <div class="drawer-logo">
+            <img src="./assets/logo-vertical.png" alt="bookshelf logo">
+         </div>
+          <md-list>
+            <md-list-item md-expand v-for="section in book.sections" :key="section.name">
+               <span class="md-list-item-text">{{section.name}}</span>
+               <md-list slot="md-expand">
+                  <md-list-item class="md-inset" v-for="nestedPage in section.pages" :key="nestedPage.path" @click="pushNav(nestedPage.path)">{{nestedPage.name}}</md-list-item>
+               </md-list>
+            </md-list-item>
+            <md-list-item v-for="page in book.pages" :key="page.path" @click="pushNav(page.path)">{{page.name}}</md-list-item>
+         </md-list>
+      </md-app-drawer>
+      <md-app-content>
+         <div id="page">
+            <router-view/>
+         </div>
+      </md-app-content>
+   </md-app>
 </template>
 
 <script>
@@ -59,9 +37,7 @@ export default {
   name: "App",
   data() {
     return {
-      clipped: true,
       drawer: false,
-      fixed: true,
       book: Book,
       title: "BookShelf"
     };
@@ -78,10 +54,23 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~vue-material/dist/theme/engine";
+
+@include md-register-theme(
+  "default",
+  (primary: #448aff, accent: #ff6600, background: #ffffff)
+);
+@import "~vue-material/dist/theme/all";
 @import "fonts/system-fonts.css";
 @import "fonts/book-fonts.css";
 html {
-  overflow-y: auto;
+  overflow-y: hidden;
+}
+.md-app {
+  height: 100vh;
+}
+.drawer-logo {
+  padding: 10px;
 }
 #page {
   @import "typography.scss";
