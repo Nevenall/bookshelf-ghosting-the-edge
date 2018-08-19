@@ -76,6 +76,9 @@ export default {
 .md-app {
   height: 100vh;
 }
+.md-content {
+  overflow: auto;
+}
 .accent-color {
   color: var(--md-theme-default-accent);
 }
