@@ -180,7 +180,11 @@ p {
    font-weight: bold;
 }
 
-.fate-font {
+// todo - the text is now the full term for accessability, we'll need to 
+// figure out a way to replace the text with the fate font of the first letter
+// Bootstrap material design does this for span's with material-icon and the text of the icon
+// it's probs javascript
+.fate-icon {
    font-family: "Fate";
 }
 
