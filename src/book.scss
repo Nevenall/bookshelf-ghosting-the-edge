@@ -103,7 +103,7 @@ figure {
 /* insert a long dash and a narrow non-breaking space before the quote attribution */
 
 .quoted footer::before {
-   content: "—\202F";
+   content: "​— ";
 }
 
 blockquote {
@@ -170,6 +170,11 @@ p {
    margin-top: 0;
    margin-bottom: 0.5em;
 }
+
+// todo - 
+dt{ }
+dd {}
+
 
 .game-term {
    font-variant: small-caps;

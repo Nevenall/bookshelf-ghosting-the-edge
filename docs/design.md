@@ -106,4 +106,6 @@ or each book can just edit the typography values.
 - [x] make a reduced version of material-icons because we only need like two icons
 - [ ] the half monitor break break point (960px) seems to be a little off. The small sidebar font seems a little too small.
 - [] make a secondary blue colored version of the bookshelf logo and use that for ghostig the edge
+- ☐ can we make a <dt> a term in bold with secondary color and then the <dd> is the rest of the paragraph.
 
+Term Description
