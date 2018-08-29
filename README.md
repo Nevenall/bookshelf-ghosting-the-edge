@@ -30,7 +30,6 @@ To see a live instance check out one of these:
 3. Edit the pageOrder object in `book.js`  
 4. Place your custom styles in `book.scss` 
 
-
 ## Thanks!
 
 A big thank you to [zuurw](https://github.com/zuurw/Graphic-Design-) for creating the BookShelf logo!

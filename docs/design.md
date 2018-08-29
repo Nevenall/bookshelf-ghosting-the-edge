@@ -96,16 +96,8 @@ either each book overides the various font sizes and line heights in book.scss
 or each book can just edit the typography values.
 
 
-## Todo
 
-- [x] Add basic styling to App.vue
-- [x] Add basic typography to App.vue
-- [x] add roboto and material design icon fonts as woff(2) files so they can be embedded in the package.
-- [x] clean up the scss 
-- [x] need to be able to assign theme colors in css before we can merge
-- [x] make a reduced version of material-icons because we only need like two icons
-- [ ] the half monitor break break point (960px) seems to be a little off. The small sidebar font seems a little too small.
-- [] make a secondary blue colored version of the bookshelf logo and use that for ghostig the edge
-- ☐ can we make a <dt> a term in bold with secondary color and then the <dd> is the rest of the paragraph.
-
-Term Description
+todo - the half monitor break break point (960px) seems to be a little off. The small sidebar font seems a little too small.
+todo - make a secondary blue colored version of the bookshelf logo and use that for ghostig the edge
+todo - can we make a <dt> a term in bold with secondary color and then the <dd> is the rest of the paragraph.
+todo - internal assets, like fate logo, are not getting built 
