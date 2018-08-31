@@ -185,12 +185,28 @@ dd {}
    font-weight: bold;
 }
 
-// todo - the text is now the full term for accessability, we'll need to 
-// figure out a way to replace the text with the fate font of the first letter
-// Bootstrap material design does this for span's with material-icon and the text of the icon
-// it's probs javascript
 .fate-icon {
    font-family: "Fate";
+   font-weight: normal;
+   font-style: normal;
+   font-size: 24px;  
+   display: inline-block;
+   line-height: 1;
+   text-transform: none;
+   letter-spacing: normal;
+   word-wrap: normal;
+   white-space: nowrap;
+   direction: ltr;
+ 
+   /* Support for all WebKit browsers. */
+   -webkit-font-smoothing: antialiased;
+   /* Support for Safari and Chrome. */
+   text-rendering: optimizeLegibility;
+   /* Support for Firefox. */
+   -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+   font-feature-settings: 'liga';
+   color: $secondary-color;
 }
 
 article::before {

@@ -63,5 +63,7 @@
 
 @font-face {
    font-family: 'Fate';
-   src: url(Fate-Core.woff2) format('woff2');
+   font-style: normal;
+   font-weight: 400;
+   src: url(Fate-Icons.woff2) format('woff2');
 }
