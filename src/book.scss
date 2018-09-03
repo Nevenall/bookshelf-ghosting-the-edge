@@ -2,12 +2,12 @@
 $primary-color: #002171;
 $secondary-color: #90caf9;
 $background-color: #303030;
+
 & {
    font-family: "Raleway";
    font-weight: normal;
-   font-feature-settings: "salt" on;
+   font-feature-settings: "salt"on;
 }
-
 
 h1,
 h2,
@@ -28,8 +28,8 @@ a {
 }
 
 table {
-   font-feature-settings: "lnum" on;
-   font-feature-settings: "salt" on;
+   font-feature-settings: "lnum"on;
+   font-feature-settings: "salt"on;
    border-collapse: collapse;
    margin: 0;
 }
@@ -68,7 +68,7 @@ table caption::before {
    height: 2px;
    margin-top: .5em;
    margin-bottom: .5em;
-   background: linear-gradient( to right, $background-color, $secondary-color, $background-color);
+   background: linear-gradient(to right, $background-color, $secondary-color, $background-color);
 }
 
 figure {
@@ -101,7 +101,6 @@ figure {
 }
 
 /* insert a long dash and a narrow non-breaking space before the quote attribution */
-
 .quoted footer::before {
    content: "​— ";
 }
@@ -139,7 +138,7 @@ ol>ol {
 ol li::before {
    counter-increment: mylist;
    content: counter(mylist);
-   font-feature-settings: "lnum" on;
+   font-feature-settings: "lnum"on;
    margin-right: 0.5em;
    margin-left: -1em;
    min-width: 1ch;
@@ -171,10 +170,18 @@ p {
    margin-bottom: 0.5em;
 }
 
-// todo - 
-dt{ }
-dd {}
+// todo - term and 
+dt {
+   color: $secondary-color;
+   font-weight: bold;
 
+}
+
+dd {
+
+   
+
+}
 
 .game-term {
    font-variant: small-caps;
@@ -189,22 +196,19 @@ dd {}
    font-family: "Fate";
    font-weight: normal;
    font-style: normal;
-   font-size: 24px;  
-   display: inline-block;
-   line-height: 1;
+   font-size: 24px;
    text-transform: none;
    letter-spacing: normal;
    word-wrap: normal;
    white-space: nowrap;
    direction: ltr;
- 
    /* Support for all WebKit browsers. */
    -webkit-font-smoothing: antialiased;
    /* Support for Safari and Chrome. */
    text-rendering: optimizeLegibility;
    /* Support for Firefox. */
    -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
+   /* Support for IE. */
    font-feature-settings: 'liga';
    color: $secondary-color;
 }
@@ -213,12 +217,12 @@ article::before {
    content: "";
    display: block;
    height: 2px;
-   background: linear-gradient( to right, $secondary-color, $background-color);
+   background: linear-gradient(to right, $secondary-color, $background-color);
 }
 
 article::after {
    content: "";
    display: block;
    height: 2px;
-   background: linear-gradient( to right, $secondary-color, $background-color);
+   background: linear-gradient(to right, $secondary-color, $background-color);
 }
