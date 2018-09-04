@@ -170,17 +170,34 @@ p {
    margin-bottom: 0.5em;
 }
 
-// todo - term and 
 dt {
-   color: $secondary-color;
    font-weight: bold;
+   color: $secondary-color;
+   display: inline;
 
+   &::after {
+      content: " ";
+   }
 }
 
 dd {
+   margin: 0;
+   display: inline;
 
-   
+   &::after {
+      content: "";
+      display: block;
+   }
 
+   p {
+      display: contents;
+   }
+
+   p+p::after {
+      margin-bottom: 0.5em;
+      content: "";
+      display: block;
+   }
 }
 
 .game-term {
