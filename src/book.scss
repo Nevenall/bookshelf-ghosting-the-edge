@@ -193,7 +193,7 @@ dd {
       display: contents;
    }
 
-   p+p::after {
+   p::after {
       margin-bottom: 0.5em;
       content: "";
       display: block;
