@@ -32,5 +32,13 @@ module.exports = {
          .rule('pages')
          .use('vue-page-loader')
          .loader('./src/vue-page-loader')
+
+      config.module.
+      rule('fonts')
+         .use('url-loader')
+         .loader('url-loader')
+         .options({
+            limit: 20
+         })
    }
 }

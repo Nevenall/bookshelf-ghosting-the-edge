@@ -149,6 +149,8 @@ ol li::before {
 
 li {
    hyphens: auto;
+   -ms-hyphens: auto;
+   -webkit-hyphens: auto;
    margin-top: 0;
    margin-bottom: 0.25em;
 }
@@ -209,6 +211,13 @@ dd {
    font-weight: bold;
 }
 
+
+// bug - the ligatures are not working in anything but chrome. 
+// is this because the letters that are part of the ligature are already replaced? 
+// how does that make any sense?
+// the way material icons work, is the icon glyphs are in a custom range, and
+// the basic latin characters have no glyphs at all
+// so that might be the thing to emulate.
 .fate-icon {
    font-family: "Fate";
    font-weight: normal;
@@ -227,6 +236,7 @@ dd {
    -moz-osx-font-smoothing: grayscale;
    /* Support for IE. */
    font-feature-settings: 'liga';
+   font-variant-ligatures: common-ligatures;
    color: $secondary-color;
 }
 
