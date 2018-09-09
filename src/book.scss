@@ -211,12 +211,6 @@ dd {
    font-weight: bold;
 }
 
-// bug - the ligatures are not working in anything but chrome. 
-// is this because the letters that are part of the ligature are already replaced? 
-// how does that make any sense?
-// the way material icons work, is the icon glyphs are in a custom range, and
-// the basic latin characters have no glyphs at all
-// so that might be the thing to emulate.
 .fate-icon {
    font-family: "Fate";
    font-weight: normal;
