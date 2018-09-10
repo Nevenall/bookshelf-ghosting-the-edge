@@ -99,5 +99,4 @@ or each book can just edit the typography values.
 
 todo - the half monitor break break point (960px) seems to be a little off. The small sidebar font seems a little too small.
 todo - make a secondary blue colored version of the bookshelf logo and use that for ghostig the edge
-todo - can we make a <dt> a term in bold with secondary color and then the <dd> is the rest of the paragraph.
-todo - internal assets, like fate logo, are not getting built 
+bug - the nav drawer is not very performant. I wonder if it has something to do with the logo? and or needing to do lots of recalculations to push the content? 
