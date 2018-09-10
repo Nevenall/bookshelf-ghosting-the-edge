@@ -33,12 +33,22 @@ module.exports = {
          .use('vue-page-loader')
          .loader('./src/vue-page-loader')
 
-      config.module.
-      rule('fonts')
+
+      config.module
+         .rule('page-assets')
+         .include
+         .add(path.join(__dirname, 'src/pages/assets'))
+         .end()
          .use('url-loader')
          .loader('url-loader')
          .options({
-            limit: 20
+            limit: 4096,
+            fallback: {
+               loader: 'file-loader',
+               options: {
+                  name: 'assets/[name].[ext]'
+               }
+            }
          })
    }
 }

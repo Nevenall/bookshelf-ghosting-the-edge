@@ -65,11 +65,5 @@
    font-family: 'Fate';
    font-style: normal;
    font-weight: 400;
-   
-   font-feature-settings: 'liga';
-
-   font-variant-ligatures: common-ligatures;
--moz-font-feature-settings: "liga";
-
    src: url(Fate-Icons.woff2) format('woff2');
 }
