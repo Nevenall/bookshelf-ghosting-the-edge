@@ -10,7 +10,6 @@
          </span>
       </md-app-toolbar>
       <md-app-drawer :md-active.sync="drawer">
-      <!-- <md-app-drawer md-fixed md-persistent="full" :md-active.sync="drawer"> -->
          <md-card>
             <md-card-media-cover md-text-scrim>
                <md-card-media md-ratio="16:9">

@@ -90,8 +90,8 @@ var pageOrder = {
          "path": "./06 Afterwards.html"
       },
       {
-         "name": "Typography",
-         "path": "./Typography.html"
+         "name": "Example",
+         "path": "./Example Page.html"
       }
    ]
 }
