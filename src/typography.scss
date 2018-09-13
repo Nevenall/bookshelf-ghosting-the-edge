@@ -83,13 +83,14 @@ small {
 }
 
 // callouts
+// todo - adjust the top margin of the first header inside a call out to 0
 article,
 aside {
    font-size: 0.8rem;
    margin-left: 1em;
    margin-right: 1em;
-   margin-top: 0.5em;
-   margin-bottom: 0.5em;
+   margin-top: 0.0em;
+   margin-bottom: 0.0em;
    font-weight: 300;
    font-size: 0.8rem;
    line-height: 1.5625;
