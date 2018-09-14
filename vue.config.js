@@ -1,6 +1,5 @@
 const path = require('path')
 
-// todo - need to make sure that assets from the pages/dir get built
 module.exports = {
    pwa: {
       name: 'Ghosting the Edge',

@@ -99,4 +99,3 @@ or each book can just edit the typography values.
 
 todo - the half monitor break break point (960px) seems to be a little off. The small sidebar font seems a little too small.
 todo - make a secondary blue colored version of the bookshelf logo and use that for ghostig the edge
-bug - the nav drawer is not very performant. I wonder if it has something to do with the logo? and or needing to do lots of recalculations to push the content? 
