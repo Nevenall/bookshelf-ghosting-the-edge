@@ -23,7 +23,7 @@
     "@vue/cli-service": "^3.0.4",
     "ajv": "^6.5.4",
     "babel-plugin-transform-imports": "^1.5.1",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
     "vue-template-compiler": "^2.5.17"
