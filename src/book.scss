@@ -119,8 +119,8 @@ ul {
    margin-left: 0;
    list-style: none;
 }
-
-ul>ul {
+// todo -for some reason the nested ul ul is'nt working
+ul ul {
    margin-left: 1em;
 }
 
@@ -131,7 +131,7 @@ ol {
    counter-reset: mylist;
 }
 
-ol>ol {
+ol ol {
    margin-left: 1em;
 }
 
