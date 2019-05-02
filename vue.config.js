@@ -9,7 +9,7 @@ module.exports = {
          favicon16: 'icons/favicon-16x16.png',
          appleTouchIcon: 'icons/apple-touch-icon.png',
          maskIcon: 'icons/safari-pinned-tab.svg',
-         msTileImage: 'icons/mstile-150x150.png'
+         msTileImage: 'icons/mstile-150x150.png',
       }
    },
    devServer: {
@@ -31,7 +31,6 @@ module.exports = {
          .rule('pages')
          .use('vue-page-loader')
          .loader('./src/vue-page-loader')
-
 
       config.module
          .rule('page-assets')
